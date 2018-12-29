@@ -1,10 +1,41 @@
+.PHONY: all
+
+LDFLAGS = -lm -g
+CXXFLAGS = -g
+
 all:	trpr hcat
 
 trpr:	trpr.cpp
-	g++ -g -o trpr trpr.cpp -lm
-
 hcat:	hcat.cpp
-	g++ -g -o hcat hcat.cpp -lm
 
 clean:
 	rm -f trpr hcat
+
+VERSION = 2.1b2
+
+RPMBUILD = $(realpath ../../rpmbuild)
+RPMBDIRS = $(foreach d,BUILD BUILDROOT RPMS SOURCES SPECS SRPMS,$(RPMBUILD)/$(d))
+TARGZ = $(RPMBUILD)/SOURCES/src-trpr-$(VERSION).tgz
+PATCHES = $(wildcard *.patch)
+RPMPATCH = $(foreach p,$(PATCHES),$(RPMBUILD)/SOURCES/$(p))
+
+$(RPMBUILD):
+	mkdir -p $@
+
+$(RPMBDIRS): $(RPMBUILD)
+	mkdir -p $@
+
+$(RPMBUILD)/SPECS/trpr.spec: trpr.spec $(RPMBUILD)/SPECS
+	sed "s,@TOPDIR@,$(RPMBUILD),g;s,@VERSION@,$(VERSION),g" < trpr.spec > "$@"
+
+# Pack up this source in preparation for making the tarball - if we can't find one already
+$(TARGZ):
+	tar czf $@ -C ../.. "src-trpr-$(VERSION)"
+
+$(RPMPATCH): $@
+	cp $(notdir $@) $(RPMBUILD)/SOURCES/
+
+.PHONY: rpm
+	
+rpm: $(RPMBDIRS) $(RPMBUILD)/SPECS/trpr.spec $(TARGZ) $(RPMPATCH)
+	cd "$(RPMBUILD)/SPECS" && rpmbuild -bb trpr.spec && rpmbuild -bs trpr.spec

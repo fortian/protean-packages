@@ -66,5 +66,7 @@ $(TARGZ):
 $(RPMPATCH): $@
 	cp $(notdir $@) $(RPMBUILD)/SOURCES/
 
+.PHONY: rpm
+
 rpm: $(RPMBDIRS) $(RPMBUILD)/SPECS/mgen.spec $(TARGZ) $(RPMPATCH)
 	cd "$(RPMBUILD)/SPECS" && rpmbuild -bb mgen.spec && rpmbuild -bs mgen.spec
