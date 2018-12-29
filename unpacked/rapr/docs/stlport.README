@@ -1,0 +1,16 @@
+STLPort
+
+Version       : 4.6.2
+Main Site     : http://www.stlport.org/
+Documentation : http://www.sgi.com/tech/stl/
+SourceForge   : http://sourceforge.net/projects/stlport
+Reasons       : 1. Portability
+                2. GCC buildin stl does not compile correctly
+                3. Better c++ support
+                4. Easier to segregate code with _STL:: namespace
+                5. Better support
+Usage         : Most of container classes and iterator classes
+Other notes   : As of Nov 02, 2005 STLPort is on 5.0RC6.  Mainly error
+                checking and other symantic changes.  Should be useful later
+                on.  5.0 also makes it easier to remove the IO portion of 
+                STLPort.

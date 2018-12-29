@@ -1,0 +1,10 @@
+<RaprLogicTable>
+   <state>
+      <value>0,0</value>
+	   <logicid>
+	      <id>1</id>
+	           <entry>0.0 STOP 0.01 DECLARATIVE UDP SRC 5001 DST 192.168.1.100/5000 PERIODIC [1 8192]</entry>
+            </logicid> 
+   </state>
+</RaprLogicTable>
+

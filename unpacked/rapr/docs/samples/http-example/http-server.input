@@ -1,0 +1,31 @@
+# Load the dictionary and logictable
+# http application.  Change the directory
+# location as appropriate.
+
+LOAD_DICTIONARY dictionary-http.xml
+LOGICTABLE_FILE /home/nrl/rapr/doc/samples/http-example/logictable-http.xml
+
+# The TXLOG enables message transmission logging 
+TXLOG 
+
+VERBOSE
+
+# Uncomment the following lines to log mgen and/or rapr
+# logging to an output file.  The OVERWRITE_<type>LOG command 
+# will overwrite any existing log files.  
+
+OVERWRITE_MGENLOG /home/nrl/rapr/docs/samples/http-example/mgen-http.log
+OVERWRITE_RAPRLOG /home/nrl/rapr/docs/samples/http-example/rapr-http.log
+
+# Listen for HTTP requests 
+
+LISTEN TCP %HTTP_PORT%
+
+# Shutdown the server 10 minutes into the test
+600.0 CHANGE_STATE %SERVER:STOPPED%
+
+# Start the server back up 5 minutes later, at 15 minutes into the test
+900.0 CHANGE_STATE %SERVER:STARTED%
+
+
+

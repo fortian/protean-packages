@@ -1,0 +1,9 @@
+SPRNG
+
+Version       : 2.0
+Main Site     : http://sprng.cs.fsu.edu/
+Reasons       : 1. Need uncorrelated streams of random numbers
+                2. Need ability to repeat random streams
+                3. Need to be able to be local to classes, nothing global
+Usage         : Interfaced through RaprPRNG class
+Other notes   : .

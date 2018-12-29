@@ -1,0 +1,94 @@
+#########################################################################
+# COMMON PROTOLIB MAKEFILE STUFF
+#
+
+SHELL=/bin/sh
+
+.SUFFIXES: .cpp $(.SUFFIXES)
+
+COMMON = ../common
+UNIX = ../unix
+NS = ../ns
+
+INCLUDES = $(TCL_INCL_PATH) $(SYSTEM_INCLUDES) -I$(UNIX) -I$(COMMON)
+
+CFLAGS = -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC $(SYSTEM_HAVES) $(INCLUDES)
+
+LDFLAGS = $(SYSTEM_LDFLAGS)
+
+LIBS = $(SYSTEM_LIBS) -lm -lpthread
+
+TARGETS = libProtokit.a libProtokit.so
+
+# Rule for C++ .cpp extension
+.cpp.o:
+	$(CC) -c $(CFLAGS) -o $*.o $*.cpp
+
+KIT_SRC = $(COMMON)/protoDebug.cpp  $(COMMON)/protoAddress.cpp \
+          $(COMMON)/protoSocket.cpp $(COMMON)/protoTimer.cpp \
+          $(COMMON)/protoChannel.cpp $(COMMON)/protoDispatcher.cpp \
+          $(COMMON)/protoCap.cpp $(COMMON)/protoApp.cpp \
+          $(COMMON)/protoTree.cpp $(COMMON)/protoRouteTable.cpp \
+          $(COMMON)/protoRouteMgr.cpp $(COMMON)/protoPipe.cpp \
+          $(COMMON)/protoBitmask.cpp $(COMMON)/protoPkt.cpp \
+          $(COMMON)/protoPktRTP.cpp $(COMMON)/protoPktIP.cpp \
+          $(COMMON)/protoPktETH.cpp \
+          $(SYSTEM_SRC)
+
+KIT_OBJ = $(KIT_SRC:.cpp=.o)
+
+libProtokit.a:    $(KIT_OBJ)
+	$(AR) rcv $@ $(KIT_OBJ)
+	$(RANLIB) $@
+
+libProtokit.so: $(KIT_OBJ)
+	$(CC) $(SYSTEM_SOFLAGS) $(KIT_OBJ) $(LIBS) -o $@
+        
+# Simple example command-line application using socket & timer
+
+EXAMPLE_SRC = $(COMMON)/protoExample.cpp
+EXAMPLE_OBJ = $(EXAMPLE_SRC:.cpp=.o)
+
+protoExample:    $(EXAMPLE_OBJ) libProtokit.a
+	$(CC) $(CFLAGS) -o $@ $(EXAMPLE_OBJ) $(LDFLAGS) $(LIBS) libProtokit.a
+    
+THREAD_SRC = $(COMMON)/threadExample.cpp
+THREAD_OBJ = $(THREAD_SRC:.cpp=.o)
+
+threadExample:    $(THREAD_OBJ) libProtokit.a
+	$(CC) $(CFLAGS) -o $@ $(THREAD_OBJ) $(LDFLAGS) $(LIBS) libProtokit.a
+    
+PIPE_SRC = $(COMMON)/pipeExample.cpp
+PIPE_OBJ = $(PIPE_SRC:.cpp=.o)
+
+pipeExample:    $(PIPE_OBJ) libProtokit.a
+	$(CC) $(CFLAGS) -o $@ $(PIPE_OBJ) $(LDFLAGS) $(LIBS) libProtokit.a
+
+PCAP_SRC = $(COMMON)/pcapExample.cpp $(COMMON)/protoPacketeer.cpp linuxPacketeer.cpp
+PCAP_OBJ = $(PCAP_SRC:.cpp=.o)
+
+pcapExample:    $(PCAP_OBJ) libProtokit.a
+	$(CC) $(CFLAGS) -o $@ $(PCAP_OBJ) $(LDFLAGS) $(LIBS) libProtokit.a -lpcap
+        
+CAP_SRC = $(COMMON)/protoCapExample.cpp
+CAP_OBJ = $(CAP_SRC:.cpp=.o)
+
+protoCapExample:    $(CAP_OBJ) libProtokit.a
+	$(CC) $(CFLAGS) -o $@ $(CAP_OBJ) $(LDFLAGS) $(LIBS) libProtokit.a
+    
+DETOUR_SRC = $(COMMON)/detourExample.cpp $(SYSTEM_SRC_EX)
+DETOUR_OBJ = $(DETOUR_SRC:.cpp=.o)
+
+detourExample:    $(DETOUR_OBJ) libProtokit.a
+	$(CC) $(CFLAGS) -o $@ $(DETOUR_OBJ) $(LDFLAGS) $(LIBS) libProtokit.a
+        
+clean:	
+	rm -f *.o $(COMMON)/*.o $(NS)/*.o ../wx/*.o *.a \
+        protoApp protoExample threadExample pipeExample protoCapExample
+    
+
+# DO NOT DELETE THIS LINE -- mkdep uses it.
+# DO NOT PUT ANYTHING AFTER THIS LINE, IT WILL GO AWAY.
+
+
+

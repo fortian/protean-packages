@@ -1,0 +1,48 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Protokit", "Protokit.vcproj", "{950B90FB-D264-48BF-AEE7-33D88C7BA3DA}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "protoExample", "protoExample.vcproj", "{FABA41A7-48C6-4D20-8DD5-5C7BACF26BC6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{950B90FB-D264-48BF-AEE7-33D88C7BA3DA} = {950B90FB-D264-48BF-AEE7-33D88C7BA3DA}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "threadExample", "..\..\..\NORM\norm\protolib\win32\threadExample\threadExample.vcproj", "{0894EFEA-B785-48A3-AA9F-EB3082E08E07}"
+	ProjectSection(ProjectDependencies) = postProject
+		{950B90FB-D264-48BF-AEE7-33D88C7BA3DA} = {950B90FB-D264-48BF-AEE7-33D88C7BA3DA}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pipeExample", "pipeExample\pipeExample.vcproj", "{81DA8541-FBCF-429C-8F88-FB5D4484CDF9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{950B90FB-D264-48BF-AEE7-33D88C7BA3DA} = {950B90FB-D264-48BF-AEE7-33D88C7BA3DA}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{950B90FB-D264-48BF-AEE7-33D88C7BA3DA}.Debug.ActiveCfg = Debug|Win32
+		{950B90FB-D264-48BF-AEE7-33D88C7BA3DA}.Debug.Build.0 = Debug|Win32
+		{950B90FB-D264-48BF-AEE7-33D88C7BA3DA}.Release.ActiveCfg = Release|Win32
+		{950B90FB-D264-48BF-AEE7-33D88C7BA3DA}.Release.Build.0 = Release|Win32
+		{FABA41A7-48C6-4D20-8DD5-5C7BACF26BC6}.Debug.ActiveCfg = Debug|Win32
+		{FABA41A7-48C6-4D20-8DD5-5C7BACF26BC6}.Debug.Build.0 = Debug|Win32
+		{FABA41A7-48C6-4D20-8DD5-5C7BACF26BC6}.Release.ActiveCfg = Release|Win32
+		{FABA41A7-48C6-4D20-8DD5-5C7BACF26BC6}.Release.Build.0 = Release|Win32
+		{0894EFEA-B785-48A3-AA9F-EB3082E08E07}.Debug.ActiveCfg = Debug|Win32
+		{0894EFEA-B785-48A3-AA9F-EB3082E08E07}.Debug.Build.0 = Debug|Win32
+		{0894EFEA-B785-48A3-AA9F-EB3082E08E07}.Release.ActiveCfg = Release|Win32
+		{0894EFEA-B785-48A3-AA9F-EB3082E08E07}.Release.Build.0 = Release|Win32
+		{81DA8541-FBCF-429C-8F88-FB5D4484CDF9}.Debug.ActiveCfg = Debug|Win32
+		{81DA8541-FBCF-429C-8F88-FB5D4484CDF9}.Debug.Build.0 = Debug|Win32
+		{81DA8541-FBCF-429C-8F88-FB5D4484CDF9}.Release.ActiveCfg = Release|Win32
+		{81DA8541-FBCF-429C-8F88-FB5D4484CDF9}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
