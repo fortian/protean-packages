@@ -7,7 +7,7 @@
 BuildRoot: %{buildroot}
 Summary: A packet generator for IP network performance testing
 License: BSD
-URL: https://www.nrl.navy.mil/itd/ncs/products/mgen
+URL: https://www.nrl.navy.mil/itd/ncs/products/%{name}
 Name: %{name}
 Version: %{version}
 BuildRequires: gcc-c++

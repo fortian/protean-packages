@@ -42,13 +42,13 @@ CC = g++
 RANLIB = ranlib
 AR = ar
 
+include Makefile.common
+
 RPMBUILD = $(realpath ../../../rpmbuild)
 RPMBDIRS = $(foreach d,BUILD BUILDROOT RPMS SOURCES SPECS SRPMS,$(RPMBUILD)/$(d))
 TARGZ = $(RPMBUILD)/SOURCES/src-mgen-$(VERSION).tgz
 PATCHES = $(wildcard *.patch)
 RPMPATCH = $(foreach p,$(PATCHES),$(RPMBUILD)/SOURCES/$(p))
-
-include Makefile.common
 
 $(RPMBUILD):
 	mkdir -p $@

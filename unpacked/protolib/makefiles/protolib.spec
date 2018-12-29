@@ -85,5 +85,5 @@ for i in %{binaries}; do install -m 0755 makefiles/$i %{buildroot}/%{_bindir}/$i
 /usr/bin/protoExample
 
 %changelog
-* Thu Dec 29 2018 Ben Stern <bstern@fortian.com> - 3.01b-1
+* Thu Dec 27 2018 Ben Stern <bstern@fortian.com> - 3.01b-1
 - Initial release
