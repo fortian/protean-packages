@@ -48,7 +48,7 @@ make -C makefiles -f Makefile.linux
 
 %install
 mkdir -p %{buildroot}/%{_libdir}
-install -m 0755 makefiles/protolib.a %{buildroot}/%{_libdir}/protolib.a
+install -m 0755 makefiles/libprotokit.a %{buildroot}/%{_libdir}/libprotokit.a
 mkdir -p %{buildroot}/%{_bindir}
 for i in %{binaries}; do
   install -m 0755 makefiles/$i %{buildroot}/%{_bindir}/$i
@@ -57,7 +57,7 @@ done
 
 %files
 %defattr(0755,root,root)
-/usr/lib/protolib.a
+/usr/lib/libprotokit.a
 /usr/bin/arposer
 /usr/bin/averageExample
 /usr/bin/base64Example
