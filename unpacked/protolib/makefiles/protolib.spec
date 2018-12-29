@@ -3,12 +3,6 @@
 %define release 1%{?dist}
 %define version @VERSION@
 %define buildroot %{_topdir}/%{name}-%{version}-root
-%define binaries arposer averageExample base64Example detourExample \
-  graphExample graphRider graphXMLExample jsonExample lfsrExample \
-  msg2MsgExample msgExample netExample pcmd pipe2SockExample pipeExample \
-  protoCapExample protoFileExample queueExample riposer serialExample \
-  simpleTcpExample sock2PipeExample threadExample timerTest ting vifExample \
-  vifLan protoExample
 
 BuildRoot: %{buildroot}
 Summary: A cross-platform C/C++ library supporting the simulation environments of NS2 and Opnet
@@ -50,7 +44,12 @@ make -C makefiles -f Makefile.linux
 mkdir -p %{buildroot}/%{_libdir}
 install -m 0755 makefiles/libprotokit.a %{buildroot}/%{_libdir}/libprotokit.a
 mkdir -p %{buildroot}/%{_bindir}
-for i in %{binaries}; do
+for i in arposer averageExample base64Example detourExample graphExample \
+  graphRider graphXMLExample jsonExample lfsrExample msg2MsgExample msgExample \
+  netExample pcmd pipe2SockExample pipeExample protoCapExample \
+  protoFileExample queueExample riposer serialExample simpleTcpExample \
+  sock2PipeExample threadExample timerTest ting vifExample vifLan \
+  protoExample; do
   install -m 0755 makefiles/$i %{buildroot}/%{_bindir}/$i
   strip %{buildroot}/%{_bindir}/$i
 done
