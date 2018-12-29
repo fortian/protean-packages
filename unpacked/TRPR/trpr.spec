@@ -3,7 +3,6 @@
 %define release 1%{?dist}
 %define version @VERSION@
 %define buildroot %{_topdir}/%{name}-%{version}-root
-%define binaries trpr hcat
 
 BuildRoot: %{buildroot}
 Summary: Analyzes output from the tcpdump packet sniffing program and creates output suitable for plotting
@@ -40,15 +39,15 @@ make -f Makefile.linux
 
 %install
 mkdir -p %{buildroot}/%{_bindir}
-for i in %{binaries}; do
+for i in trpr hcat; do
   install -m 0755 $i %{buildroot}/%{_bindir}/$i
   strip %{buildroot}/%{_bindir}/$i
 done
 
 %files
 %defattr(0755,root,root)
-/usr/bin/trpr
-/usr/bin/hcat
+%{_bindir}/trpr
+%{_bindir}/hcat
 
 %changelog
 * Sat Dec 29 2018 Ben Stern <bstern@fortian.com> - 2.1b2

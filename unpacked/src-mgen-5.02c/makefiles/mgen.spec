@@ -3,7 +3,6 @@
 %define release 1%{?dist}
 %define version @VERSION@
 %define buildroot %{_topdir}/%{name}-%{version}-root
-%define binaries mgen mpmgr
 
 BuildRoot: %{buildroot}
 Summary: A packet generator for IP network performance testing
@@ -35,15 +34,15 @@ make -C makefiles -f Makefile.linux
 
 %install
 mkdir -p %{buildroot}/%{_bindir}
-for i in %{binaries}; do
+for i in mgen mpmgr; do
   install -m 0755 $i %{buildroot}/%{_bindir}/$i
   strip %{buildroot}/%{_bindir}/$i
 done
 
 %files
 %defattr(0755,root,root)
-/usr/bin/mgen
-/usr/bin/mpmgr
+%{_bindir}/mgen
+%{_bindir}/mpmgr
 
 %changelog
 * Thu Dec 20 2018 Ben Stern <bstern@fortian.com> - 5.02c-1
