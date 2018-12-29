@@ -13,7 +13,7 @@ clean:
 
 VERSION = 2.1b2
 
-RPMBUILD = $(realpath ../../rpmbuild)
+RPMBUILD = $(abspath ../../rpmbuild)
 RPMBDIRS = $(foreach d,BUILD BUILDROOT RPMS SOURCES SPECS SRPMS,$(RPMBUILD)/$(d))
 TARGZ = $(RPMBUILD)/SOURCES/src-trpr-$(VERSION).tgz
 PATCHES = $(wildcard *.patch)

@@ -61,7 +61,7 @@ AR = ar
 
 include Makefile.common
 
-RPMBUILD = $(realpath ../../../rpmbuild)
+RPMBUILD = $(abspath ../../../rpmbuild)
 RPMBDIRS = $(foreach d,BUILD BUILDROOT RPMS SOURCES SPECS SRPMS,$(RPMBUILD)/$(d))
 TARGZ = $(RPMBUILD)/SOURCES/src-mgen-$(VERSION).tgz
 PATCHES = $(wildcard *.patch)
