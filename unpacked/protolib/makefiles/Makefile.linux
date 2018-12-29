@@ -78,7 +78,7 @@ $(RPMBUILD)/SPECS/protolib.spec: protolib.spec $(RPMBUILD)/SPECS
 
 # Pack up this source in preparation for making the tarball - if we can't find one already
 $(TARGZ):
-	tar czf $@ -C ../.. "src-protolib-$(VERSION)"
+	tar czf $@ -C ../.. protolib
 
 $(RPMPATCH): $@
 	cp $(notdir $@) $(RPMBUILD)/SOURCES/
