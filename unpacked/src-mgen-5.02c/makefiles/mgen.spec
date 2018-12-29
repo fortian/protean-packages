@@ -35,7 +35,7 @@ make -C makefiles -f Makefile.linux
 %install
 mkdir -p %{buildroot}/%{_bindir}
 for i in mgen mpmgr; do
-  install -m 0755 $i %{buildroot}/%{_bindir}/$i
+  install -m 0755 makefiles/$i %{buildroot}/%{_bindir}/$i
   strip %{buildroot}/%{_bindir}/$i
 done
 
