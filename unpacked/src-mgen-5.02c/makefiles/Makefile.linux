@@ -63,8 +63,8 @@ $(RPMBUILD)/SPECS/mgen.spec: mgen.spec $(RPMBUILD)/SPECS
 $(TARGZ):
 	tar czf $@ -C ../.. "src-mgen-$(VERSION)"
 
-$(RPMPATCH):
-	cp $@ $(RPMBUILD)/SOURCES/
+$(RPMPATCH): $@
+	cp $(notdir $@) $(RPMBUILD)/SOURCES/
 
 rpm: $(RPMBDIRS) $(RPMBUILD)/SPECS/mgen.spec $(TARGZ) $(RPMPATCH)
 	cd "$(RPMBUILD)/SPECS" && rpmbuild -bb mgen.spec && rpmbuild -bs mgen.spec
