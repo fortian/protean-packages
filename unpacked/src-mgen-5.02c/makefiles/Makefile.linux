@@ -42,4 +42,29 @@ CC = g++
 RANLIB = ranlib
 AR = ar
 
+RPMBUILD = $(realpath ../../../rpmbuild)
+RPMBDIRS = $(foreach d,BUILD BUILDROOT RPMS SOURCES SPECS SRPMS,$(RPMBUILD)/$(d))
+TARGZ = $(RPMBUILD)/SOURCES/src-mgen-$(VERSION).tgz
+PATCHES = $(wildcard *.patch)
+RPMPATCH = $(foreach p,$(PATCHES),$(RPMBUILD)/SOURCES/$(p))
+
 include Makefile.common
+
+$(RPMBUILD):
+	mkdir -p $@
+
+$(RPMBDIRS): $(RPMBUILD)
+	mkdir -p $@
+
+$(RPMBUILD)/SPECS/mgen.spec: mgen.spec $(RPMBUILD)/SPECS
+	sed "s,@TOPDIR@,$(RPMBUILD),g;s,@VERSION@,$(VERSION),g" < mgen.spec > "$(RPMBUILD)/SPECS/mgen.spec"
+
+# Pack up this source in preparation for making the tarball - if we can't find one already
+$(TARGZ):
+	tar czf $@ -C ../.. "src-mgen-$(VERSION)"
+
+$(RPMPATCH):
+	cp $@ $(RPMBUILD)/SOURCES/
+
+rpm: $(RPMBDIRS) $(RPMBUILD)/SPECS/mgen.spec $(TARGZ) $(RPMPATCH)
+	cd "$(RPMBUILD)/SPECS" && rpmbuild -bb mgen.spec && rpmbuild -bs mgen.spec

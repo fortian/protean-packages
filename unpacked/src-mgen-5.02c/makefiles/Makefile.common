@@ -12,6 +12,8 @@ PYTHON = ../src/python
 INCLUDE = ../include
 UNIX = ../makefiles
 
+VERSION = 5.02c
+
 INCLUDES = $(SYSTEM_INCLUDES) -I$(UNIX) -I$(INCLUDE) -I$(PROTOLIB)/include
 
 CFLAGS = -g -DPROTO_DEBUG -DHAVE_GPS -DUNIX -Wall -Wcast-align -pedantic -fPIC $(SYSTEM_HAVES) $(INCLUDES)

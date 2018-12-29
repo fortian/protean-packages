@@ -1,7 +1,7 @@
-%define _topdir /home/bstern/rpmbuild
+%define _topdir @TOPDIR@
 %define name mgen
 %define release 1%{?dist}
-%define version 5.02c
+%define version @VERSION@
 %define buildroot %{_topdir}/%{name}-%{version}-root
 
 BuildRoot: %{buildroot}
@@ -15,6 +15,7 @@ BuildRequires: make
 BuildRequires: libpcap-devel
 Release: %{release}
 Source0: src-%{name}-%{version}.tgz
+Patch0: mgen-protolib-rhel.patch
 Prefix: /usr
 
 %description
