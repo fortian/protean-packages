@@ -57,7 +57,7 @@ $(RPMBDIRS): $(RPMBUILD)
 	mkdir -p $@
 
 $(RPMBUILD)/SPECS/mgen.spec: mgen.spec $(RPMBUILD)/SPECS
-	sed "s,@TOPDIR@,$(RPMBUILD),g;s,@VERSION@,$(VERSION),g" < mgen.spec > "$(RPMBUILD)/SPECS/mgen.spec"
+	sed "s,@TOPDIR@,$(RPMBUILD),g;s,@VERSION@,$(VERSION),g" < mgen.spec > "$@"
 
 # Pack up this source in preparation for making the tarball - if we can't find one already
 $(TARGZ):
