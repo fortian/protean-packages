@@ -50,7 +50,10 @@ make -C makefiles -f Makefile.linux
 mkdir -p %{buildroot}/%{_libdir}
 install -m 0755 makefiles/protolib.a %{buildroot}/%{_libdir}/protolib.a
 mkdir -p %{buildroot}/%{_bindir}
-for i in %{binaries}; do install -m 0755 makefiles/$i %{buildroot}/%{_bindir}/$i; done
+for i in %{binaries}; do
+  install -m 0755 makefiles/$i %{buildroot}/%{_bindir}/$i
+  strip %{buildroot}/%{_bindir}/$i
+done
 
 %files
 %defattr(0755,root,root)

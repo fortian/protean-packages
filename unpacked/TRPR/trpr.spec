@@ -40,7 +40,10 @@ make -f Makefile.linux
 
 %install
 mkdir -p %{buildroot}/%{_bindir}
-for i in %{binaries}; do install -m 0755 makefiles/$i %{buildroot}/%{_bindir}/$i; done
+for i in %{binaries}; do
+  install -m 0755 $i %{buildroot}/%{_bindir}/$i
+  strip %{buildroot}/%{_bindir}/$i
+done
 
 %files
 %defattr(0755,root,root)

@@ -3,6 +3,7 @@
 %define release 1%{?dist}
 %define version @VERSION@
 %define buildroot %{_topdir}/%{name}-%{version}-root
+%define binaries mgen mpmgr
 
 BuildRoot: %{buildroot}
 Summary: A packet generator for IP network performance testing
@@ -34,8 +35,10 @@ make -C makefiles -f Makefile.linux
 
 %install
 mkdir -p %{buildroot}/%{_bindir}
-install -m 0755 makefiles/mgen %{buildroot}/%{_bindir}/mgen
-install -m 0755 makefiles/mpmgr %{buildroot}/%{_bindir}/mpmgr
+for i in %{binaries}; do
+  install -m 0755 $i %{buildroot}/%{_bindir}/$i
+  strip %{buildroot}/%{_bindir}/$i
+done
 
 %files
 %defattr(0755,root,root)
