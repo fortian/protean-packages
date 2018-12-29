@@ -14,6 +14,7 @@ BuildRequires: gcc-c++
 BuildRequires: make
 BuildRequires: libpcap-devel
 BuildRequires: libxml2-devel
+BuildRequires: libnetfilter_queue-devel
 Release: %{release}
 Source0: src-%{name}-%{version}.tgz
 Patch0: protolib-rhel.patch
