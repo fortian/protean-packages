@@ -36,6 +36,11 @@ Protolib.
 
 %prep
 %setup -q -n %{name}
+if grep -q RHEL_VERSION %{name}/src/linux/linuxDetour.cpp; then
+  :
+else
+  patch -p0 < %{_topdir}/SOURCES/protolib-rhel.patch
+fi
 
 %build
 make -C makefiles -f Makefile.linux
