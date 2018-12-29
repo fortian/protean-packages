@@ -41,7 +41,7 @@ This package doesn't include documentation or the Python bindings for
 Protolib.
 
 %prep
-%setup -q -n src-%{name}-%{version}
+%setup -q -n %{name}
 
 %build
 make -C makefiles -f Makefile.linux
