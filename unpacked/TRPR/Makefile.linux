@@ -30,7 +30,7 @@ $(RPMBUILD)/SPECS/trpr.spec: trpr.spec $(RPMBUILD)/SPECS
 
 # Pack up this source in preparation for making the tarball - if we can't find one already
 $(TARGZ):
-	tar czf $@ -C ../.. "src-trpr-$(VERSION)"
+	tar czf $@ -C .. TRPR
 
 $(RPMPATCH): $@
 	cp $(notdir $@) $(RPMBUILD)/SOURCES/
