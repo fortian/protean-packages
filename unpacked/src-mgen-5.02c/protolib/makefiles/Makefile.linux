@@ -5,7 +5,7 @@
 # System specific additional libraries, include paths, etc
 #
 SYSTEM_INCLUDES = -I../include/unix
-SYSTEM_LDFLAGS =
+SYSTEM_LDFLAGS = 
 SYSTEM_LIBS = -ldl -lrt
 
 # 6) System specific capabilities
