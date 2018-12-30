@@ -1,6 +1,6 @@
 Description: fix compiler warnings
  This patch fixes "warning: cast to pointer from integer of different size"
- in mgen/protolib/src/common/protoDispatcher.cpp by simply adding a cast
+ in protolib/src/common/protoDispatcher.cpp by simply adding a cast
  to intptr_t as recommended by
   https://buildd.debian.org/~brlink/bytag/W-pointer-cast-size-mismatch.html.
  So far no negative effects to the workings of the program have been observed.
@@ -8,8 +8,8 @@ Description: fix compiler warnings
 Author: Raoul Gunnar Borenius <borenius@dfn.de>
 Forwarded: yes, sent private email to upstream authors
 Last-Update: 2012-02-20
---- a/mgen/protolib/src/common/protoDispatcher.cpp
-+++ b/mgen/protolib/src/common/protoDispatcher.cpp
+--- a/protolib/src/common/protoDispatcher.cpp
++++ b/protolib/src/common/protoDispatcher.cpp
 @@ -760,7 +760,7 @@
      if (dp->controller) Lock(dp->controller->lock_b);
      Lock(dp->suspend_mutex);

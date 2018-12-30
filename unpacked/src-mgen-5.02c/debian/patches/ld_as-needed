@@ -9,8 +9,8 @@ Author: Daniel T Chen, https://launchpad.net/~crimsun
 Forwarded: yes, sent private email to upstream authors
 Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
 Last-Update: 2012-02-21
---- a/mgen/makefiles/Makefile.common
-+++ b/mgen/makefiles/Makefile.common
+--- a/makefiles/Makefile.common
++++ b/makefiles/Makefile.common
 @@ -57,7 +57,7 @@
  MPMGR_OBJ = $(MPMGR_SRC:.cpp=.o)
  

@@ -12,8 +12,8 @@ Description: fix dpkg-shlibdeps warning
 Author: Nicholas Bamber <nicholas@periapt.co.uk>
 Forwarded: yes, sent private email to upstream authors
 Last-Update: 2012-02-21
---- a/mgen/makefiles/Makefile.freebsd
-+++ b/mgen/makefiles/Makefile.freebsd
+--- a/makefiles/Makefile.freebsd
++++ b/makefiles/Makefile.freebsd
 @@ -6,7 +6,7 @@
  #    (Where to find X11 libraries, etc)
  #
@@ -23,8 +23,8 @@ Last-Update: 2012-02-21
  SYSTEM_LIBS = -pthread
  ####SYSTEM_LIBS = -lc_r
  
---- a/mgen/makefiles/Makefile.linux
-+++ b/mgen/makefiles/Makefile.linux
+--- a/makefiles/Makefile.linux
++++ b/makefiles/Makefile.linux
 @@ -7,6 +7,7 @@
  #
  SYSTEM_INCLUDES = -I/usr/X11R6/include 

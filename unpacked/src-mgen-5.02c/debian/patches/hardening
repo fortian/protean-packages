@@ -7,8 +7,8 @@ Author: Raoul Gunnar Borenius <borenius@dfn.de>
 Forwarded: yes, sent private email to upstream authors
 Last-Update: 2012-03-27
 Reviewed-by: Simon Ruderich <simon@ruderich.org>
---- a/mgen/makefiles/Makefile.common
-+++ b/mgen/makefiles/Makefile.common
+--- a/makefiles/Makefile.common
++++ b/makefiles/Makefile.common
 @@ -14,6 +14,7 @@
  INCLUDES = $(SYSTEM_INCLUDES) -I$(UNIX) -I$(INCLUDE) -I$(PROTOLIB)/include
  
@@ -17,8 +17,8 @@ Reviewed-by: Simon Ruderich <simon@ruderich.org>
  
  #CFLAGS = -g -fno-inline -D_HAVE_PCAP -DPROTO_DEBUG -DHAVE_GPS -DUNIX -Wall -Wcast-align -pedantic  -fPIC $(SYSTEM_HAVES) $(INCLUDES) 
  
---- a/mgen/makefiles/Makefile.freebsd
-+++ b/mgen/makefiles/Makefile.freebsd
+--- a/makefiles/Makefile.freebsd
++++ b/makefiles/Makefile.freebsd
 @@ -7,6 +7,7 @@
  #
  SYSTEM_INCLUDES =  
@@ -27,8 +27,8 @@ Reviewed-by: Simon Ruderich <simon@ruderich.org>
  SYSTEM_LIBS = -pthread
  ####SYSTEM_LIBS = -lc_r
  
---- a/mgen/makefiles/Makefile.linux
-+++ b/mgen/makefiles/Makefile.linux
+--- a/makefiles/Makefile.linux
++++ b/makefiles/Makefile.linux
 @@ -8,6 +8,7 @@
  SYSTEM_INCLUDES = -I/usr/X11R6/include 
  SYSTEM_LDFLAGS = -L/usr/X11R6/lib 
@@ -37,8 +37,8 @@ Reviewed-by: Simon Ruderich <simon@ruderich.org>
  SYSTEM_LIBS = -ldl -lpthread
  
  # 2) System specific capabilities
---- a/mgen/protolib/makefiles/Makefile.freebsd
-+++ b/mgen/protolib/makefiles/Makefile.freebsd
+--- a/protolib/makefiles/Makefile.freebsd
++++ b/protolib/makefiles/Makefile.freebsd
 @@ -6,7 +6,7 @@
  #    (Where to find X11 libraries, etc)
  #
@@ -48,8 +48,8 @@ Reviewed-by: Simon Ruderich <simon@ruderich.org>
  SYSTEM_LIBS = -pthread
  ##SYSTEM_LIBS = -lc_r
  
---- a/mgen/protolib/makefiles/Makefile.linux
-+++ b/mgen/protolib/makefiles/Makefile.linux
+--- a/protolib/makefiles/Makefile.linux
++++ b/protolib/makefiles/Makefile.linux
 @@ -6,7 +6,7 @@
  # System specific additional libraries, include paths, etc
  #
@@ -59,8 +59,8 @@ Reviewed-by: Simon Ruderich <simon@ruderich.org>
  SYSTEM_LIBS = -ldl -lrt
  
  # 6) System specific capabilities
---- a/mgen/protolib/makefiles/Makefile.common
-+++ b/mgen/protolib/makefiles/Makefile.common
+--- a/protolib/makefiles/Makefile.common
++++ b/protolib/makefiles/Makefile.common
 @@ -16,6 +16,7 @@
  INCLUDES = $(TCL_INCL_PATH) $(SYSTEM_INCLUDES) -I../include
  

@@ -12,8 +12,8 @@ Description: attempt to port to Debian/kFreeBSD
  to compile but is highly suspicious.
 Last-Update: 2012-02-10
 Forwarded: yes, sent private email to upstream authors
---- a/mgen/protolib/include/protoFile.h
-+++ b/mgen/protolib/include/protoFile.h
+--- a/protolib/include/protoFile.h
++++ b/protolib/include/protoFile.h
 @@ -21,6 +21,10 @@
  #include <sys/stat.h>
  #endif // if/else _WIN32_WCE
@@ -25,8 +25,8 @@ Forwarded: yes, sent private email to upstream authors
  #include <ctype.h> // for "isprint()"
  // required protolib files
  #include "protoChannel.h"
---- a/mgen/protolib/src/bsd/bsdRouteMgr.cpp
-+++ b/mgen/protolib/src/bsd/bsdRouteMgr.cpp
+--- a/protolib/src/bsd/bsdRouteMgr.cpp
++++ b/protolib/src/bsd/bsdRouteMgr.cpp
 @@ -15,6 +15,10 @@
  #include <net/route.h>
  #include <net/if_dl.h>
