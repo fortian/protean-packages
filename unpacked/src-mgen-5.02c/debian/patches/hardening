@@ -12,7 +12,7 @@ Reviewed-by: Simon Ruderich <simon@ruderich.org>
 @@ -17,6 +17,7 @@
  INCLUDES = $(SYSTEM_INCLUDES) -I$(UNIX) -I$(INCLUDE) -I$(PROTOLIB)/include
  
- CFLAGS = -g -DPROTO_DEBUG -D_RAPR_JOURNAL -DHAVE_GPS -DUNIX -Wall -Wcast-align -pedantic -fPIC $(SYSTEM_HAVES) $(INCLUDES)
+ CFLAGS = -g -DPROTO_DEBUG -DHAVE_GPS -DUNIX -Wall -Wcast-align -pedantic -fPIC $(SYSTEM_HAVES) $(INCLUDES)
 +CFLAGS += $(shell dpkg-buildflags --get CFLAGS) $(shell dpkg-buildflags --get CPPFLAGS)
  
  #CFLAGS = -g -fno-inline -D_HAVE_PCAP -DPROTO_DEBUG -DHAVE_GPS -DUNIX -Wall -Wcast-align -pedantic  -fPIC $(SYSTEM_HAVES) $(INCLUDES) 
@@ -42,9 +42,9 @@ Reviewed-by: Simon Ruderich <simon@ruderich.org>
 @@ -6,7 +6,7 @@
  #    (Where to find X11 libraries, etc)
  #
- SYSTEM_INCLUDES =  
--SYSTEM_LDFLAGS =  
-+SYSTEM_LDFLAGS =  $(shell dpkg-buildflags --get LDFLAGS)
+ SYSTEM_INCLUDES = 
+-SYSTEM_LDFLAGS = 
++SYSTEM_LDFLAGS = $(shell dpkg-buildflags --get LDFLAGS)
  SYSTEM_LIBS = -pthread
  ##SYSTEM_LIBS = -lc_r
  
@@ -54,7 +54,7 @@ Reviewed-by: Simon Ruderich <simon@ruderich.org>
  # System specific additional libraries, include paths, etc
  #
  SYSTEM_INCLUDES = -I../include/unix
- SYSTEM_LDFLAGS =
+ SYSTEM_LDFLAGS = 
 +SYSTEM_LDFLAGS += $(shell dpkg-buildflags --get LDFLAGS)
  SYSTEM_LIBS = -ldl -lrt
  
