@@ -77,4 +77,4 @@ RELEASE = $(shell lsb_release -s -c)
 	sed "s,@VERSION@,$(VERSION),g;s,@RELEASE@,$(RELEASE),g" < changelog > "$@"
 
 deb: ../debian/changelog $(wildcard ../debian/patches/*)
-	cd .. && debuild -i -us -uc -b
+	cd .. && debuild -i -us -uc -b && debuild -i -us -uc -S
