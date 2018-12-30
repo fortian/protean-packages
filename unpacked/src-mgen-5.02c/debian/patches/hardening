@@ -9,7 +9,7 @@ Last-Update: 2012-03-27
 Reviewed-by: Simon Ruderich <simon@ruderich.org>
 --- a/makefiles/Makefile.common
 +++ b/makefiles/Makefile.common
-@@ -14,6 +14,7 @@
+@@ -17,6 +17,7 @@
  INCLUDES = $(SYSTEM_INCLUDES) -I$(UNIX) -I$(INCLUDE) -I$(PROTOLIB)/include
  
  CFLAGS = -g -DPROTO_DEBUG -D_RAPR_JOURNAL -DHAVE_GPS -DUNIX -Wall -Wcast-align -pedantic -fPIC $(SYSTEM_HAVES) $(INCLUDES)
@@ -19,7 +19,7 @@ Reviewed-by: Simon Ruderich <simon@ruderich.org>
  
 --- a/makefiles/Makefile.freebsd
 +++ b/makefiles/Makefile.freebsd
-@@ -7,6 +7,7 @@
+@@ -8,6 +8,7 @@
  #
  SYSTEM_INCLUDES =  
  SYSTEM_LDFLAGS = -Wl,--as-needed
@@ -44,28 +44,28 @@ Reviewed-by: Simon Ruderich <simon@ruderich.org>
  #
  SYSTEM_INCLUDES =  
 -SYSTEM_LDFLAGS =  
-+SYSTEM_LDFLAGS =   $(shell dpkg-buildflags --get LDFLAGS)
++SYSTEM_LDFLAGS =  $(shell dpkg-buildflags --get LDFLAGS)
  SYSTEM_LIBS = -pthread
  ##SYSTEM_LIBS = -lc_r
  
 --- a/protolib/makefiles/Makefile.linux
 +++ b/protolib/makefiles/Makefile.linux
-@@ -6,7 +6,7 @@
+@@ -5,8 +5,9 @@
  # System specific additional libraries, include paths, etc
  #
- SYSTEM_INCLUDES = 
--SYSTEM_LDFLAGS =
-+SYSTEM_LDFLAGS = $(shell dpkg-buildflags --get LDFLAGS)
+ SYSTEM_INCLUDES = -I../include/unix
+ SYSTEM_LDFLAGS =
++SYSTEM_LDFLAGS += $(shell dpkg-buildflags --get LDFLAGS)
  SYSTEM_LIBS = -ldl -lrt
  
  # 6) System specific capabilities
 --- a/protolib/makefiles/Makefile.common
 +++ b/protolib/makefiles/Makefile.common
-@@ -16,6 +16,7 @@
+@@ -17,6 +17,7 @@
  INCLUDES = $(TCL_INCL_PATH) $(SYSTEM_INCLUDES) -I../include
  
  CFLAGS = -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O $(SYSTEM_CFLAGS) -fPIC $(SYSTEM_HAVES) $(INCLUDES)
 +CFLAGS += $(shell dpkg-buildflags --get CFLAGS) $(shell dpkg-buildflags --get CPPFLAGS)
- 
+ #CFLAGS = -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 $(SYSTEM_CFLAGS) -fPIC $(SYSTEM_HAVES) $(INCLUDES)
  LDFLAGS = $(SYSTEM_LDFLAGS)
  

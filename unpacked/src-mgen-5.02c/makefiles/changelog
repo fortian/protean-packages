@@ -1,4 +1,4 @@
-mgen (@VERSION@+dfsg2~@RELEASE@-1) @RELEASE@; urgency=low
+mgen (@VERSION@+dfsg3~@RELEASE@-1) @RELEASE@; urgency=low
 
   * new build
 

@@ -2,7 +2,6 @@
 # Linux Protean Makefile definitions
 #
 
-
 # System specific additional libraries, include paths, etc
 #
 SYSTEM_INCLUDES = -I../include/unix
