@@ -1,5 +1,5 @@
 # needs to be incremented if we make changes in the source
-SUFFIX=""
+SUFFIX="~$(lsb_release -c -s)"
 # remove pre-built binaries and other cruft
 make -C makefiles -f Makefile.linux clean
 find . -name '*~' -print0 | xargs -0r rm
