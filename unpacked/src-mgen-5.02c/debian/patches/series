@@ -1,0 +1,5 @@
+ld_as-needed
+nolibdl
+fix-compile-warnings
+hardening
+freebsd

@@ -1,0 +1,22 @@
+Description: fix FTBFS on Ubuntu
+ Ubuntu (and to a different timescale Debian) are planning to tighten up
+ the linking of shared libraries. For more information see
+ https://wiki.ubuntu.com/NattyNarwhal/ToolchainTransition#Indirect_Linking_for_Shared_Libraries
+ This patch does not actually do that. Rather it corrects the order of the
+ compiler flags so that when the --as-needed (or equivalent) flags are actually
+ applied the build will still work.
+Author: Daniel T Chen, https://launchpad.net/~crimsun
+Forwarded: yes, sent private email to upstream authors
+Reviewed-by: Nicholas Bamber <nicholas@periapt.co.uk>
+Last-Update: 2012-02-21
+--- a/mgen/makefiles/Makefile.common
++++ b/mgen/makefiles/Makefile.common
+@@ -57,7 +57,7 @@
+ MPMGR_OBJ = $(MPMGR_SRC:.cpp=.o)
+ 
+ mpmgr:    $(MPMGR_OBJ) $(LIBPROTO)
+-	$(CC) -g $(CFLAGS) -o $@ $(MPMGR_OBJ) $(LDFLAGS) $(LIBS) $(LIBPROTO) 
++	$(CC) -g $(CFLAGS) -o $@ $(MPMGR_OBJ) $(LDFLAGS) $(LIBPROTO) $(LIBS)
+      	    
+ clean:	
+ 	rm -f $(COMMON)/*.o  $(UNIX)/*.o $(UNIX)/mgen $(UNIX)/mpmgr $(NS)/*.o;

@@ -1,0 +1,4 @@
+version=3
+opts=dversionmangle=s/\+dfsg\d*$// \
+    http://downloads.pf.itd.nrl.navy.mil/mgen/src-mgen-([\d.]+)\.tar\.gz \
+    debian sh debian/repack.stub

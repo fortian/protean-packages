@@ -1,0 +1,40 @@
+Author: Nicholas Bamber <nicholas@periapt.co.uk>
+Description: attempt to port to Debian/kFreeBSD
+ This patch attempts to get the package building on
+ FreeBSD. So far it adds in '#include'
+ statements that appear to be missing. However this
+ comes unstuck when we hit the RTF_WASCLONED symbol.
+ This would be defined in net/route.h but seems to
+ have been removed. It would be nice if upstream
+ or someone with more knowledge of FreeBSD networking
+ would have a look at this. However for the moment
+ the patch adds this #define back in. This gets it
+ to compile but is highly suspicious.
+Last-Update: 2012-02-10
+Forwarded: yes, sent private email to upstream authors
+--- a/mgen/protolib/include/protoFile.h
++++ b/mgen/protolib/include/protoFile.h
+@@ -21,6 +21,10 @@
+ #include <sys/stat.h>
+ #endif // if/else _WIN32_WCE
+ 
++#ifndef _SYS_FILE_H
++#include <sys/file.h>
++#endif
++
+ #include <ctype.h> // for "isprint()"
+ // required protolib files
+ #include "protoChannel.h"
+--- a/mgen/protolib/src/bsd/bsdRouteMgr.cpp
++++ b/mgen/protolib/src/bsd/bsdRouteMgr.cpp
+@@ -15,6 +15,10 @@
+ #include <net/route.h>
+ #include <net/if_dl.h>
+ 
++#ifndef RTF_WASCLONED
++#define RTF_WASCLONED 0x20000
++#endif
++
+ class BsdRouteMgr : public ProtoRouteMgr
+ {
+     public:

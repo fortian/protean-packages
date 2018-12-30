@@ -1,0 +1,28 @@
+#!/usr/bin/make -f
+
+#export DH_VERBOSE=1
+# This has to be exported to make some magic below work.
+export DH_OPTIONS
+
+export DEB_BUILD_MAINT_OPTIONS=hardening=+all
+
+ifeq ($(shell uname -s),GNU/kFreeBSD)
+    MAKEFILE:=Makefile.freebsd
+else
+    MAKEFILE:=Makefile.linux
+endif
+
+override_dh_auto_build:
+	cd mgen/makefiles && make -f $(MAKEFILE)
+
+override_dh_auto_clean:
+	cd mgen/makefiles && make -f $(MAKEFILE) clean
+
+override_dh_installchangelogs:
+	dh_installchangelogs mgen/VERSION.TXT
+
+%:
+	dh $@ 
+
+get-orig-source:
+	uscan  --force-download --repack --verbose

@@ -1,0 +1,30 @@
+Source: mgen
+Section: net
+Priority: optional
+Original-Maintainer: Raoul Gunnar Borenius <borenius@dfn.de>
+Maintainer: Ben Stern <bstern@fortian.com>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Homepage: http://cs.itd.nrl.navy.mil/work/mgen/
+
+Package: mgen
+Architecture: any
+Suggests: mgen-doc
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: packet generator for IP network performance tests
+ MGEN provides the ability to perform IP network performance tests
+ and measurements using TCP and UDP/IP traffic. Test messages
+ can be generated, received and logged. MGEN offers control over
+ all network parameters and timing of these messages. All this can be
+ done either via the command line or defined in a file format for
+ greater reproducibility.
+
+Package: mgen-doc
+Architecture: all
+Section: doc
+Recommends: dwww | dhelp | rarian-compat | doc-central
+Depends: ${misc:Depends}
+Description: mgen user and reference guide
+ This package contains the HTML documentation for MGEN, a packet generator
+ for IP network performance tests. It can also be found online at
+ http://cs.itd.nrl.navy.mil/work/mgen/ .
