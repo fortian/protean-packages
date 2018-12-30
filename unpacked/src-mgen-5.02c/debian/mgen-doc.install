@@ -1,8 +1,8 @@
-mgen/doc/*.html     usr/share/doc/mgen-doc
-mgen/doc/*.css      usr/share/doc/mgen-doc
-mgen/doc/*.jpeg     usr/share/doc/mgen-doc
-mgen/doc/*.gif      usr/share/doc/mgen-doc
-mgen/doc/*.pdf      usr/share/doc/mgen-doc
-mgen/doc/*.xml      usr/share/doc/mgen-doc
-mgen/doc/*.xmi      usr/share/doc/mgen-doc
-mgen/doc/resources/ usr/share/doc/mgen-doc/resources
+doc/*.html     usr/share/doc/mgen-doc
+doc/*.css      usr/share/doc/mgen-doc
+doc/*.jpeg     usr/share/doc/mgen-doc
+doc/*.gif      usr/share/doc/mgen-doc
+doc/*.pdf      usr/share/doc/mgen-doc
+doc/*.xml      usr/share/doc/mgen-doc
+doc/*.xmi      usr/share/doc/mgen-doc
+doc/resources/ usr/share/doc/mgen-doc/resources
