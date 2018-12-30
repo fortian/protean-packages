@@ -66,7 +66,15 @@ $(TARGZ):
 $(RPMPATCH): $@
 	cp $(notdir $@) $(RPMBUILD)/SOURCES/
 
-.PHONY: rpm
+.PHONY: rpm deb
 
 rpm: $(RPMBDIRS) $(RPMBUILD)/SPECS/mgen.spec $(TARGZ) $(RPMPATCH)
 	cd "$(RPMBUILD)/SPECS" && rpmbuild -bb mgen.spec && rpmbuild -bs mgen.spec
+
+RELEASE = $(shell lsb_release -s -c)
+
+../debian/changelog: changelog
+	sed "s,@VERSION@,$(VERSION),g;s,@RELEASE@,$(RELEASE),g" < changelog > "$@"
+
+deb: ../debian/changelog $(wildcard ../debian/patches/*)
+	cd .. && debuild -i -us -uc -b
