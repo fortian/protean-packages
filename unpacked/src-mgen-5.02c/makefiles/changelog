@@ -1,0 +1,42 @@
+mgen (@VERSION@+dfsg2~@RELEASE@-1) @RELEASE@; urgency=low
+
+  * new build
+
+ -- Ben Stern <bstern@fortian.com>  Sat, 29 Dec 2018 23:34:35 -0500
+
+mgen (5.02+dfsg2-3) unstable; urgency=low
+
+  * enable hardening flags in protolib/ (thanks to Simon Ruderich)
+    (Closes: #665313)
+  * changed "Recommends: mgen-doc" into "Suggests: mgen-doc" to
+    avoid installing the doc-package by default (and thereby installing
+    the complete web based debian help system)
+  * put doc files in mgen-doc package in it's own directory in /usr/share/doc
+    to get rid of lintian warning 'doc-package-depends-on-main-package'
+  * bumped Standards-Version to 3.9.3
+
+ -- Raoul Gunnar Borenius <borenius@dfn.de>  Tue, 27 Mar 2012 22:53:25 +0200
+
+mgen (5.02+dfsg2-2) unstable; urgency=low
+
+  * Add patch fixing FTBFS on Ubuntu (thanks to Daniel T Chen)
+    (Closes: #657820)
+  * Add patch to fix dh_shlibdeps warning (thanks to Nicholas Bamber)
+  * enable hardening flags (http://wiki.debian.org/ReleaseGoals)
+  * Add patch to get rid of pointer-cast-size-mismatch warning
+  * Add patch for kfreebsd port (thanks to Nicholas Bamber)
+
+ -- Raoul Gunnar Borenius <borenius@dfn.de>  Tue, 07 Feb 2012 12:39:11 +0100
+
+mgen (5.02+dfsg2-1) unstable; urgency=low
+
+  * removed unused waf script (Closes: #654490)
+  * added get-orig-source target to debian/rules
+
+ -- Raoul Gunnar Borenius <borenius@dfn.de>  Sun, 08 Jan 2012 01:59:22 +0100
+
+mgen (5.02+dfsg-1) unstable; urgency=low
+
+  * Initial release (Closes: #630498)
+
+ -- Raoul Gunnar Borenius <borenius@dfn.de>  Mon, 26 Sep 2011 16:12:53 +0200
