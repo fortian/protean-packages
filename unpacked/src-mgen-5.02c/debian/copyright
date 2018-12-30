@@ -6,7 +6,7 @@ Comment: The original upstream source was repackaged to remove
  pre-built binaries, duplicate files and header files with
  licenses that were DFSG incompatible.
 
-Files: mgen/*
+Files: *
 Copyright: Naval Research Laboratory (NRL) 2002 - 2018
 License:
  AUTHORIZATION TO USE AND DISTRIBUTE

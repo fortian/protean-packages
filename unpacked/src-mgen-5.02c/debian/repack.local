@@ -5,15 +5,15 @@ make -C makefiles -f Makefile.linux clean
 find . -name '*~' -print0 | xargs -0r rm
 # remove unneeded files with unclear licenses
 # We're the source for these files, the license is fine.
-#rm -rf mgen/makefiles/win32
-#rm -rf mgen/makefiles/wince
-#rm -rf mgen/src/sim
-#rm -rf mgen/protolib/makefiles/win32
-#rm -rf mgen/protolib/makefiles/wince
-#rm -rf mgen/protolib/src/win32
-#rm -rf mgen/protolib/src/wince
-#rm -rf mgen/protolib/src/sim
-#rm -rf mgen/protolib/src/java
-#rm -rf mgen/protolib/waf
-#rm -rf mgen/protolib/waf.bat
-#rm -rf mgen/protolib/wscript
+#rm -rf makefiles/win32
+#rm -rf makefiles/wince
+#rm -rf src/sim
+#rm -rf protolib/makefiles/win32
+#rm -rf protolib/makefiles/wince
+#rm -rf protolib/src/win32
+#rm -rf protolib/src/wince
+#rm -rf protolib/src/sim
+#rm -rf protolib/src/java
+#rm -rf protolib/waf
+#rm -rf protolib/waf.bat
+#rm -rf protolib/wscript
