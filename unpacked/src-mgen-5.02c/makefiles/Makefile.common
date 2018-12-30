@@ -12,8 +12,6 @@ PYTHON = ../src/python
 INCLUDE = ../include
 UNIX = ../makefiles
 
-VERSION = 5.02c
-
 INCLUDES = $(SYSTEM_INCLUDES) -I$(UNIX) -I$(INCLUDE) -I$(PROTOLIB)/include
 
 CFLAGS = -g -DPROTO_DEBUG -DHAVE_GPS -DUNIX -Wall -Wcast-align -pedantic -fPIC $(SYSTEM_HAVES) $(INCLUDES)
@@ -26,6 +24,8 @@ LIBS = $(SYSTEM_LIBS) -lm
 #LIBS = $(SYSTEM_LIBS) -lm -lpcap
 
 TARGETS = mgen mpmgr 
+
+VERSION = 5.02c
 
 # Rule for C++ .cpp extension
 .cpp.o:

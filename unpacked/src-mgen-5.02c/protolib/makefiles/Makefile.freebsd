@@ -6,7 +6,6 @@
 #    (Where to find X11 libraries, etc)
 #
 SYSTEM_INCLUDES = 
-SYSTEM_LDFLAGS = $(shell dpkg-buildflags --get LDFLAGS)
 SYSTEM_LIBS = -pthread
 ##SYSTEM_LIBS = -lc_r
 

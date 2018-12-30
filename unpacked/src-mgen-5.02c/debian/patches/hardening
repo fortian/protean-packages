@@ -5,8 +5,10 @@ Description: use hardening build flags
  http://wiki.debian.org/ReleaseGoals/SecurityHardeningBuildFlags
 Author: Raoul Gunnar Borenius <borenius@dfn.de>
 Forwarded: yes, sent private email to upstream authors
-Last-Update: 2012-03-27
+Prev-Last-Update: 2012-03-27
 Reviewed-by: Simon Ruderich <simon@ruderich.org>
+Last-Update: 2018-12-30
+Updated-By: Ben Stern <bstern@fortian.com>
 --- a/makefiles/Makefile.common
 +++ b/makefiles/Makefile.common
 @@ -17,6 +17,7 @@
@@ -19,7 +21,7 @@ Reviewed-by: Simon Ruderich <simon@ruderich.org>
  
 --- a/makefiles/Makefile.freebsd
 +++ b/makefiles/Makefile.freebsd
-@@ -8,6 +8,7 @@
+@@ -7,6 +7,7 @@
  #
  SYSTEM_INCLUDES =  
  SYSTEM_LDFLAGS = -Wl,--as-needed
@@ -29,29 +31,27 @@ Reviewed-by: Simon Ruderich <simon@ruderich.org>
  
 --- a/makefiles/Makefile.linux
 +++ b/makefiles/Makefile.linux
-@@ -8,6 +8,7 @@
+@@ -7,6 +7,7 @@
+ #
  SYSTEM_INCLUDES = -I/usr/X11R6/include 
- SYSTEM_LDFLAGS = -L/usr/X11R6/lib 
- SYSTEM_LDFLAGS += -Wl,--as-needed
+ SYSTEM_LDFLAGS = -L/usr/X11R6/lib -Wl,--as-needed
 +SYSTEM_LDFLAGS += $(shell dpkg-buildflags --get LDFLAGS)
- SYSTEM_LIBS = -ldl -lpthread
+ SYSTEM_LIBS = -ldl -lpthread -lpcap
  
  # 2) System specific capabilities
 --- a/protolib/makefiles/Makefile.freebsd
 +++ b/protolib/makefiles/Makefile.freebsd
-@@ -6,7 +6,7 @@
+@@ -6,6 +6,7 @@
  #    (Where to find X11 libraries, etc)
  #
  SYSTEM_INCLUDES = 
--SYSTEM_LDFLAGS = 
 +SYSTEM_LDFLAGS = $(shell dpkg-buildflags --get LDFLAGS)
  SYSTEM_LIBS = -pthread
  ##SYSTEM_LIBS = -lc_r
  
 --- a/protolib/makefiles/Makefile.linux
 +++ b/protolib/makefiles/Makefile.linux
-@@ -5,8 +5,9 @@
- # System specific additional libraries, include paths, etc
+@@ -6,6 +6,7 @@
  #
  SYSTEM_INCLUDES = -I../include/unix
  SYSTEM_LDFLAGS = 
@@ -61,11 +61,11 @@ Reviewed-by: Simon Ruderich <simon@ruderich.org>
  # 6) System specific capabilities
 --- a/protolib/makefiles/Makefile.common
 +++ b/protolib/makefiles/Makefile.common
-@@ -17,6 +17,7 @@
- INCLUDES = $(TCL_INCL_PATH) $(SYSTEM_INCLUDES) -I../include
+@@ -16,6 +16,7 @@
+ INCLUDES = $(TCL_INCL_PATH) $(SYSTEM_INCLUDES) -I../include -I/usr/include/libxml2
  
- CFLAGS = -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O $(SYSTEM_CFLAGS) -fPIC $(SYSTEM_HAVES) $(INCLUDES)
+ CFLAGS = -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O $(SYSTEM_CFLAGS) $(SYSTEM_HAVES) $(INCLUDES) 
 +CFLAGS += $(shell dpkg-buildflags --get CFLAGS) $(shell dpkg-buildflags --get CPPFLAGS)
  #CFLAGS = -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 $(SYSTEM_CFLAGS) -fPIC $(SYSTEM_HAVES) $(INCLUDES)
+
  LDFLAGS = $(SYSTEM_LDFLAGS)
- 
