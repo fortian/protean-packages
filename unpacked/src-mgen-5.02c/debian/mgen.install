@@ -1,2 +1,2 @@
-mgen/makefiles/mgen  usr/bin
-mgen/makefiles/mpmgr usr/bin
+makefiles/mgen  usr/bin
+makefiles/mpmgr usr/bin

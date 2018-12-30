@@ -13,16 +13,13 @@ else
 endif
 
 override_dh_auto_build:
-	cd mgen/makefiles && make -f $(MAKEFILE)
+	make -C makefiles -f $(MAKEFILE)
 
 override_dh_auto_clean:
-	cd mgen/makefiles && make -f $(MAKEFILE) clean
+	make -C makefiles -f $(MAKEFILE) clean
 
 override_dh_installchangelogs:
-	dh_installchangelogs mgen/VERSION.TXT
+	dh_installchangelogs VERSION.TXT
 
 %:
 	dh $@ 
-
-get-orig-source:
-	uscan  --force-download --repack --verbose
