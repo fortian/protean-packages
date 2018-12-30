@@ -1,0 +1,26 @@
+Format: 1.8
+Date: Sat, 29 Dec 2018 23:34:35 -0500
+Source: mgen
+Binary: mgen mgen-doc
+Architecture: amd64 all
+Version: 5.02c+dfsg2~trusty-1
+Distribution: trusty
+Urgency: low
+Maintainer: Ben Stern <bstern@fortian.com>
+Changed-By: Ben Stern <bstern@fortian.com>
+Description: 
+ mgen       - packet generator for IP network performance tests
+ mgen-doc   - mgen user and reference guide
+Changes: 
+ mgen (5.02c+dfsg2~trusty-1) trusty; urgency=low
+ .
+   * new build
+Checksums-Sha1: 
+ a9699a7c1874c681bac5638081a019f65b3e2c60 124530 mgen_5.02c+dfsg2~trusty-1_amd64.deb
+ 26d6fa4b386f25dd562f1d23561f7a5de3772649 2792498 mgen-doc_5.02c+dfsg2~trusty-1_all.deb
+Checksums-Sha256: 
+ cda6d89317eaba8c7e4ef3ff759deb3292255c3ce17414b4f8bfe8ec35635f4f 124530 mgen_5.02c+dfsg2~trusty-1_amd64.deb
+ 833bf7239a9107394c523f3de0792112eefc55bc25fa23aff59e39690a229754 2792498 mgen-doc_5.02c+dfsg2~trusty-1_all.deb
+Files: 
+ 9e79b32939644c05aa0b9ed448e61891 124530 net optional mgen_5.02c+dfsg2~trusty-1_amd64.deb
+ 1ebd04ab8a769c2aee4ae58086217a4c 2792498 doc optional mgen-doc_5.02c+dfsg2~trusty-1_all.deb

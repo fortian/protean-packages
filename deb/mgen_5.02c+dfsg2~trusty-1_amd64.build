@@ -1,0 +1,219 @@
+ dpkg-buildpackage -rfakeroot -D -us -uc -i -b
+dpkg-buildpackage: source package mgen
+dpkg-buildpackage: source version 5.02c+dfsg2~trusty-1
+dpkg-buildpackage: source distribution trusty
+dpkg-buildpackage: source changed by Ben Stern <bstern@fortian.com>
+ dpkg-source -i --before-build src-mgen-5.02c
+dpkg-buildpackage: host architecture amd64
+dpkg-source: warning: unknown information field 'Original-Maintainer' in input data in general section of control info file
+ fakeroot debian/rules clean
+dh clean 
+   dh_testdir
+   debian/rules override_dh_auto_clean
+make[1]: Entering directory `/home/bstern/protean-packages/unpacked/src-mgen-5.02c'
+make -C makefiles -f Makefile.linux clean
+make[2]: Entering directory `/home/bstern/protean-packages/unpacked/src-mgen-5.02c/makefiles'
+rm -f ../src/common/*.o  ../makefiles/*.o ../makefiles/mgen ../makefiles/*.so ../makefiles/mpmgr /*.o;
+make -C ../protolib/makefiles -f Makefile.linux clean
+make[3]: Entering directory `/home/bstern/protean-packages/unpacked/src-mgen-5.02c/protolib/makefiles'
+rm -f *.o ../src/common/*.o ../src/manet/*.o ../src/sim/ns/*.o ../src/*/*.o ../examples/*.o \
+        *.a *.so ../lib/*.a ../lib/*.../bin/* so \
+        arposer averageExample base64Example detourExample graphExample graphRider graphXMLExample jsonExample lfsrExample msg2MsgExample msgExample netExample pcmd pipe2SockExample pipeExample protoCapExample protoApp protoExample protoFileExample queueExample riposer serialExample simpleTcpExample sock2PipeExample threadExample timerTest ting vifExample vifLan gr ../bin/*
+make[3]: Leaving directory `/home/bstern/protean-packages/unpacked/src-mgen-5.02c/protolib/makefiles'
+make[2]: Leaving directory `/home/bstern/protean-packages/unpacked/src-mgen-5.02c/makefiles'
+make[1]: Leaving directory `/home/bstern/protean-packages/unpacked/src-mgen-5.02c'
+   dh_clean
+ debian/rules build
+make: `build' is up to date.
+ fakeroot debian/rules binary
+dh binary 
+   dh_testdir
+   dh_auto_configure
+   debian/rules override_dh_auto_build
+make[1]: Entering directory `/home/bstern/protean-packages/unpacked/src-mgen-5.02c'
+make -C makefiles -f Makefile.linux
+make[2]: Entering directory `/home/bstern/protean-packages/unpacked/src-mgen-5.02c/makefiles'
+g++ -c -g -DPROTO_DEBUG -DHAVE_GPS -DUNIX -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_SCHED -DHAVE_GETLOGIN -DHAVE_LOCKF -DHAVE_DIRFD -DHAVE_ASSERT  -D_FILE_OFFSET_BITS=64 -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DHAVE_IPV6 -I/usr/X11R6/include  -I../makefiles -I../include -I../protolib/include -o ../src/common/mgenApp.o ../src/common/mgenApp.cpp
+g++ -c -g -DPROTO_DEBUG -DHAVE_GPS -DUNIX -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_SCHED -DHAVE_GETLOGIN -DHAVE_LOCKF -DHAVE_DIRFD -DHAVE_ASSERT  -D_FILE_OFFSET_BITS=64 -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DHAVE_IPV6 -I/usr/X11R6/include  -I../makefiles -I../include -I../protolib/include -o ../src/common/mgen.o ../src/common/mgen.cpp
+../src/common/mgen.cpp: In member function 'MgenTransport* Mgen::FindMgenTransport(Protocol, UINT16, const ProtoAddress&, bool, MgenTransport*, const char*)':
+../src/common/mgen.cpp:353:11: warning: suggest parentheses around '&&' within '||' [-Wparentheses]
+           &&
+           ^
+g++ -c -g -DPROTO_DEBUG -DHAVE_GPS -DUNIX -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_SCHED -DHAVE_GETLOGIN -DHAVE_LOCKF -DHAVE_DIRFD -DHAVE_ASSERT  -D_FILE_OFFSET_BITS=64 -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DHAVE_IPV6 -I/usr/X11R6/include  -I../makefiles -I../include -I../protolib/include -o ../src/common/mgenEvent.o ../src/common/mgenEvent.cpp
+In file included from ../src/common/mgenEvent.cpp:2:0:
+../include/mgenEvent.h: In constructor 'MgenEvent::MgenEvent()':
+../include/mgenEvent.h:198:19: warning: 'MgenEvent::option_mask' will be initialized after [-Wreorder]
+  unsigned int     option_mask;
+                   ^
+../include/mgenEvent.h:195:25: warning:   'FragmentationStatus MgenEvent::df' [-Wreorder]
+     FragmentationStatus df;
+                         ^
+../src/common/mgenEvent.cpp:16:1: warning:   when initialized here [-Wreorder]
+ MgenEvent::MgenEvent()
+ ^
+g++ -c -g -DPROTO_DEBUG -DHAVE_GPS -DUNIX -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_SCHED -DHAVE_GETLOGIN -DHAVE_LOCKF -DHAVE_DIRFD -DHAVE_ASSERT  -D_FILE_OFFSET_BITS=64 -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DHAVE_IPV6 -I/usr/X11R6/include  -I../makefiles -I../include -I../protolib/include -o ../src/common/mgenFlow.o ../src/common/mgenFlow.cpp
+g++ -c -g -DPROTO_DEBUG -DHAVE_GPS -DUNIX -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_SCHED -DHAVE_GETLOGIN -DHAVE_LOCKF -DHAVE_DIRFD -DHAVE_ASSERT  -D_FILE_OFFSET_BITS=64 -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DHAVE_IPV6 -I/usr/X11R6/include  -I../makefiles -I../include -I../protolib/include -o ../src/common/mgenMsg.o ../src/common/mgenMsg.cpp
+../src/common/mgenMsg.cpp: In member function 'bool MgenMsg::ConvertBinaryLog(const char*, Mgen&)':
+../src/common/mgenMsg.cpp:1681:26: warning: variable 'timePtr' set but not used [-Wunused-but-set-variable]
+               struct tm* timePtr;
+                          ^
+g++ -c -g -DPROTO_DEBUG -DHAVE_GPS -DUNIX -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_SCHED -DHAVE_GETLOGIN -DHAVE_LOCKF -DHAVE_DIRFD -DHAVE_ASSERT  -D_FILE_OFFSET_BITS=64 -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DHAVE_IPV6 -I/usr/X11R6/include  -I../makefiles -I../include -I../protolib/include -o ../src/common/mgenTransport.o ../src/common/mgenTransport.cpp
+g++ -c -g -DPROTO_DEBUG -DHAVE_GPS -DUNIX -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_SCHED -DHAVE_GETLOGIN -DHAVE_LOCKF -DHAVE_DIRFD -DHAVE_ASSERT  -D_FILE_OFFSET_BITS=64 -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DHAVE_IPV6 -I/usr/X11R6/include  -I../makefiles -I../include -I../protolib/include -o ../src/common/mgenPattern.o ../src/common/mgenPattern.cpp
+g++ -c -g -DPROTO_DEBUG -DHAVE_GPS -DUNIX -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_SCHED -DHAVE_GETLOGIN -DHAVE_LOCKF -DHAVE_DIRFD -DHAVE_ASSERT  -D_FILE_OFFSET_BITS=64 -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DHAVE_IPV6 -I/usr/X11R6/include  -I../makefiles -I../include -I../protolib/include -o ../src/common/mgenPayload.o ../src/common/mgenPayload.cpp
+g++ -c -g -DPROTO_DEBUG -DHAVE_GPS -DUNIX -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_SCHED -DHAVE_GETLOGIN -DHAVE_LOCKF -DHAVE_DIRFD -DHAVE_ASSERT  -D_FILE_OFFSET_BITS=64 -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DHAVE_IPV6 -I/usr/X11R6/include  -I../makefiles -I../include -I../protolib/include -o ../src/common/mgenSequencer.o ../src/common/mgenSequencer.cpp
+g++ -c -g -DPROTO_DEBUG -DHAVE_GPS -DUNIX -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_SCHED -DHAVE_GETLOGIN -DHAVE_LOCKF -DHAVE_DIRFD -DHAVE_ASSERT  -D_FILE_OFFSET_BITS=64 -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DHAVE_IPV6 -I/usr/X11R6/include  -I../makefiles -I../include -I../protolib/include -o ../src/common/gpsPub.o ../src/common/gpsPub.cpp
+g++ -c -g -DPROTO_DEBUG -DHAVE_GPS -DUNIX -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_SCHED -DHAVE_GETLOGIN -DHAVE_LOCKF -DHAVE_DIRFD -DHAVE_ASSERT  -D_FILE_OFFSET_BITS=64 -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DHAVE_IPV6 -I/usr/X11R6/include  -I../makefiles -I../include -I../protolib/include -o ../src/common/mgenAppSinkTransport.o ../src/common/mgenAppSinkTransport.cpp
+make -C ../protolib/makefiles -f Makefile.linux libprotokit.a
+make[3]: Entering directory `/home/bstern/protean-packages/unpacked/src-mgen-5.02c/protolib/makefiles'
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoAddress.o ../src/common/protoAddress.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoApp.o ../src/common/protoApp.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoBase64.o ../src/common/protoBase64.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoBitmask.o ../src/common/protoBitmask.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoCap.o ../src/common/protoCap.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoChannel.o ../src/common/protoChannel.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoCheck.o ../src/common/protoCheck.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoDebug.o ../src/common/protoDebug.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoDispatcher.o ../src/common/protoDispatcher.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoPipe.o ../src/common/protoPipe.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoPkt.o ../src/common/protoPkt.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoPktARP.o ../src/common/protoPktARP.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoPktETH.o ../src/common/protoPktETH.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoPktIGMP.o ../src/common/protoPktIGMP.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoPktIP.o ../src/common/protoPktIP.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoPktTCP.o ../src/common/protoPktTCP.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoPktRIP.o ../src/common/protoPktRIP.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoPktRTP.o ../src/common/protoPktRTP.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoSocket.o ../src/common/protoSocket.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoRouteMgr.o ../src/common/protoRouteMgr.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoRouteTable.o ../src/common/protoRouteTable.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoTime.o ../src/common/protoTime.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoTimer.o ../src/common/protoTimer.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoTree.o ../src/common/protoTree.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoList.o ../src/common/protoList.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoQueue.o ../src/common/protoQueue.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoVif.o ../src/common/protoVif.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoSerial.o ../src/common/protoSerial.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoLFSR.o ../src/common/protoLFSR.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoNet.o ../src/common/protoNet.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoFile.o ../src/common/protoFile.cpp
+../src/common/protoFile.cpp: In member function 'void ProtoFile::Unlock()':
+../src/common/protoFile.cpp:196:34: warning: ignoring return value of 'int lockf(int, int, __off64_t)', declared with attribute warn_unused_result [-Wunused-result]
+     lockf(descriptor, F_ULOCK, 0);
+                                  ^
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/common/protoString.o ../src/common/protoString.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/linux/linuxRouteMgr.o ../src/linux/linuxRouteMgr.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/linux/linuxNet.o ../src/linux/linuxNet.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/unix/unixNet.o ../src/unix/unixNet.cpp
+g++ -c -g -DPROTO_DEBUG -DUNIX -D_FILE_OFFSET_BITS=64 -O -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_GETLOGIN -D_FILE_OFFSET_BITS=64 -DHAVE_LOCKF -DHAVE_OLD_SIGNALHANDLER -DHAVE_DIRFD -DHAVE_ASSERT -DNO_SCM_RIGHTS -DHAVE_SCHED -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DUSE_EVENTFD -DHAVE_IPV6  -I../include/unix -I../include -I/usr/include/libxml2  -o ../src/unix/zebraRouteMgr.o ../src/unix/zebraRouteMgr.cpp
+rm -f libprotokit.a 
+ar rcv libprotokit.a ../src/common/protoAddress.o ../src/common/protoApp.o ../src/common/protoBase64.o ../src/common/protoBitmask.o ../src/common/protoCap.o ../src/common/protoChannel.o ../src/common/protoCheck.o ../src/common/protoDebug.o ../src/common/protoDispatcher.o ../src/common/protoPipe.o ../src/common/protoPkt.o ../src/common/protoPktARP.o ../src/common/protoPktETH.o ../src/common/protoPktIGMP.o ../src/common/protoPktIP.o ../src/common/protoPktTCP.o ../src/common/protoPktRIP.o ../src/common/protoPktRTP.o ../src/common/protoSocket.o ../src/common/protoRouteMgr.o ../src/common/protoRouteTable.o ../src/common/protoTime.o ../src/common/protoTimer.o ../src/common/protoTree.o ../src/common/protoList.o ../src/common/protoQueue.o ../src/common/protoVif.o ../src/common/protoCap.o ../src/common/protoSerial.o ../src/common/protoLFSR.o ../src/common/protoNet.o ../src/common/protoFile.o ../src/common/protoString.o ../src/linux/linuxRouteMgr.o ../src/linux/linuxNet.o ../src/unix/unixNet.o ../src/unix/zebraRouteMgr.o
+a - ../src/common/protoAddress.o
+a - ../src/common/protoApp.o
+a - ../src/common/protoBase64.o
+a - ../src/common/protoBitmask.o
+a - ../src/common/protoCap.o
+a - ../src/common/protoChannel.o
+a - ../src/common/protoCheck.o
+a - ../src/common/protoDebug.o
+a - ../src/common/protoDispatcher.o
+a - ../src/common/protoPipe.o
+a - ../src/common/protoPkt.o
+a - ../src/common/protoPktARP.o
+a - ../src/common/protoPktETH.o
+a - ../src/common/protoPktIGMP.o
+a - ../src/common/protoPktIP.o
+a - ../src/common/protoPktTCP.o
+a - ../src/common/protoPktRIP.o
+a - ../src/common/protoPktRTP.o
+a - ../src/common/protoSocket.o
+a - ../src/common/protoRouteMgr.o
+a - ../src/common/protoRouteTable.o
+a - ../src/common/protoTime.o
+a - ../src/common/protoTimer.o
+a - ../src/common/protoTree.o
+a - ../src/common/protoList.o
+a - ../src/common/protoQueue.o
+a - ../src/common/protoVif.o
+a - ../src/common/protoCap.o
+a - ../src/common/protoSerial.o
+a - ../src/common/protoLFSR.o
+a - ../src/common/protoNet.o
+a - ../src/common/protoFile.o
+a - ../src/common/protoString.o
+a - ../src/linux/linuxRouteMgr.o
+a - ../src/linux/linuxNet.o
+a - ../src/unix/unixNet.o
+a - ../src/unix/zebraRouteMgr.o
+ranlib libprotokit.a
+mkdir -p ../lib
+cp libprotokit.a ../lib/libprotokit.a
+make[3]: Leaving directory `/home/bstern/protean-packages/unpacked/src-mgen-5.02c/protolib/makefiles'
+g++ -g -g -DPROTO_DEBUG -DHAVE_GPS -DUNIX -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_SCHED -DHAVE_GETLOGIN -DHAVE_LOCKF -DHAVE_DIRFD -DHAVE_ASSERT  -D_FILE_OFFSET_BITS=64 -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DHAVE_IPV6 -I/usr/X11R6/include  -I../makefiles -I../include -I../protolib/include -o mgen ../src/common/mgenApp.o  ../src/common/mgen.o ../src/common/mgenEvent.o ../src/common/mgenFlow.o ../src/common/mgenMsg.o ../src/common/mgenTransport.o ../src/common/mgenPattern.o ../src/common/mgenPayload.o ../src/common/mgenSequencer.o ../src/common/gpsPub.o ../src/common/mgenAppSinkTransport.o -L/usr/X11R6/lib  ../protolib/lib/libprotokit.a -ldl -lpthread -lpcap -lm  
+g++ -c -g -DPROTO_DEBUG -DHAVE_GPS -DUNIX -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_SCHED -DHAVE_GETLOGIN -DHAVE_LOCKF -DHAVE_DIRFD -DHAVE_ASSERT  -D_FILE_OFFSET_BITS=64 -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DHAVE_IPV6 -I/usr/X11R6/include  -I../makefiles -I../include -I../protolib/include -o ../src/common/mpmgr.o ../src/common/mpmgr.cpp
+g++ -g -g -DPROTO_DEBUG -DHAVE_GPS -DUNIX -Wall -Wcast-align -pedantic -fPIC -DLINUX -DHAVE_SCHED -DHAVE_GETLOGIN -DHAVE_LOCKF -DHAVE_DIRFD -DHAVE_ASSERT  -D_FILE_OFFSET_BITS=64 -DUNIX -DUSE_SELECT -DUSE_TIMERFD -DHAVE_PSELECT -DHAVE_IPV6 -I/usr/X11R6/include  -I../makefiles -I../include -I../protolib/include -o mpmgr ../src/common/mpmgr.o ../src/common/gpsPub.o -L/usr/X11R6/lib  ../protolib/lib/libprotokit.a -ldl -lpthread -lpcap -lm  
+make[2]: Leaving directory `/home/bstern/protean-packages/unpacked/src-mgen-5.02c/makefiles'
+make[1]: Leaving directory `/home/bstern/protean-packages/unpacked/src-mgen-5.02c'
+   dh_auto_test
+   dh_testroot
+   dh_prep
+   dh_auto_install
+pyversions: missing X(S)-Python-Version in control file, fall back to debian/pyversions
+pyversions: missing debian/pyversions file, fall back to supported versions
+running install
+running build
+running build_py
+running install_lib
+creating /home/bstern/protean-packages/unpacked/src-mgen-5.02c/debian/tmp
+creating /home/bstern/protean-packages/unpacked/src-mgen-5.02c/debian/tmp/usr
+creating /home/bstern/protean-packages/unpacked/src-mgen-5.02c/debian/tmp/usr/lib
+creating /home/bstern/protean-packages/unpacked/src-mgen-5.02c/debian/tmp/usr/lib/python2.7
+creating /home/bstern/protean-packages/unpacked/src-mgen-5.02c/debian/tmp/usr/lib/python2.7/dist-packages
+copying build/lib.linux-x86_64-2.7/_gpsPub.so -> /home/bstern/protean-packages/unpacked/src-mgen-5.02c/debian/tmp/usr/lib/python2.7/dist-packages
+copying build/lib.linux-x86_64-2.7/mgen.py -> /home/bstern/protean-packages/unpacked/src-mgen-5.02c/debian/tmp/usr/lib/python2.7/dist-packages
+running install_egg_info
+Writing /home/bstern/protean-packages/unpacked/src-mgen-5.02c/debian/tmp/usr/lib/python2.7/dist-packages/mgen-1.0.egg-info
+running install
+running build
+running build_ext
+running install_lib
+copying build/lib.linux-x86_64-2.7/_gpsPub.so -> /home/bstern/protean-packages/unpacked/src-mgen-5.02c/debian/tmp/usr/lib/python2.7/dist-packages
+copying build/lib.linux-x86_64-2.7/mgen.py -> /home/bstern/protean-packages/unpacked/src-mgen-5.02c/debian/tmp/usr/lib/python2.7/dist-packages
+running install_egg_info
+Writing /home/bstern/protean-packages/unpacked/src-mgen-5.02c/debian/tmp/usr/lib/python2.7/dist-packages/gpsPub-1.0.egg-info
+   dh_install
+   dh_installdocs
+   debian/rules override_dh_installchangelogs
+make[1]: Entering directory `/home/bstern/protean-packages/unpacked/src-mgen-5.02c'
+dh_installchangelogs VERSION.TXT
+make[1]: Leaving directory `/home/bstern/protean-packages/unpacked/src-mgen-5.02c'
+   dh_installexamples
+   dh_installman
+   dh_perl
+   dh_link
+   dh_compress
+   dh_fixperms
+   dh_strip
+   dh_makeshlibs
+   dh_shlibdeps
+   dh_installdeb
+   dh_gencontrol
+dpkg-gencontrol: warning: unknown information field 'Original-Maintainer' in input data in general section of control info file
+dpkg-gencontrol: warning: unknown information field 'Original-Maintainer' in input data in general section of control info file
+   dh_md5sums
+   dh_builddeb
+dpkg-deb: building package `mgen' in `../mgen_5.02c+dfsg2~trusty-1_amd64.deb'.
+dpkg-deb: building package `mgen-doc' in `../mgen-doc_5.02c+dfsg2~trusty-1_all.deb'.
+ dpkg-genchanges -b >../mgen_5.02c+dfsg2~trusty-1_amd64.changes
+dpkg-genchanges: warning: the current version (5.02c+dfsg2~trusty-1) is earlier than the previous one (5.02+dfsg2-3)
+dpkg-genchanges: warning: unknown information field 'Original-Maintainer' in input data in general section of control info file
+dpkg-genchanges: binary-only upload - not including any source code
+ dpkg-source -i --after-build src-mgen-5.02c
+dpkg-source: warning: unknown information field 'Original-Maintainer' in input data in general section of control info file
+dpkg-buildpackage: binary only upload (no source included)
+Now running lintian...
+W: mgen: latest-debian-changelog-entry-without-new-version
+W: mgen: binary-without-manpage usr/bin/mpmgr
+W: mgen-doc: latest-debian-changelog-entry-without-new-version
+E: mgen-doc: doc-base-file-references-missing-file mgen:8 /usr/share/doc/mgen-doc/html/mgen.html
+E: mgen-doc: doc-base-file-references-missing-file mgen:9 /usr/share/doc/mgen-doc/html/*.html
+Finished running lintian.
