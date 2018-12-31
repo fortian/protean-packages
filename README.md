@@ -3,6 +3,11 @@ A collection of `.spec` files to make RPMs of software packages commonly
 used by the Network and Communications Systems Branch and others interested
 in network protocol research.
 
+Built RPMs (and by extension, the packages that can be created with `make
+rpm`) are in `rpmbuild/RPMS` and `rpmbuild/SRPMS`.  Note that `make rpm`
+assumes that it will be invoked upon a suitable OS (i.e., Red Hat, CentOS,
+Fedora, etc.).
+
 # Using the Repository
 
 This requires GNU Make, which usually isn't a problem under Linux.
@@ -36,6 +41,7 @@ to the `Makefile`s, so this may not be a problem moving forward.
   - SMF
     - Has an out-of-date Protolib, which no longer builds under Linux
       distributions without `linux/netfilter_ipv4/ip_queue.h`
+    - Build a nightly build package instead
   - gpsLogger
     - Low priority package
 - More packages
@@ -43,16 +49,19 @@ to the `Makefile`s, so this may not be a problem moving forward.
     - Ubuntu 18.04 LTS
     - Ubuntu 16.04 LTS
     - Ubuntu 18.10 (i.e., current)
+    - MGEN has the start of Debian packaging, based upon Debian's (old) 5.02
+      package, but it's not complete
   - `-devel` packages
     - Python bindings
       - Protolib is not building a shared library properly
-      - MGEN's Python bindings say they need the Protolib Python bindings and
-        the Protolib shared library, which, as above, doesn't build
+      - Protolib's Python bindings don't build either, as a result; this is
+        lower priority, though
     - Java bindings
       - Lower priority
     - C/C++ bindings
-      - Protolib is really the only package that seems be able to be shipped
-        as a `-devel` package
+      - Protolib?
+      - NORM will definitely have a `-devel` package as well as a regular
+        package
   - Docs packages
     - Lower priority
     - Can be included in main RPM, under `%files` section, e.g.:
