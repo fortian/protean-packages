@@ -45,11 +45,11 @@ AR = ar
 include Makefile.common
 
 RPMBUILD = $(abspath ../../../rpmbuild)
-RPMBDIRS = $(foreach d,BUILD BUILDROOT RPMS SOURCES SPECS SRPMS,$(RPMBUILD)/$(d))
+RPMBDIRS = $(RPMBUILD)/BUILD $(RPMBUILD)/BUILDROOT $(RPMBUILD)/RPMS $(RPMBUILD)/SOURCES $(RPMBUILD)/SPECS $(RPMBUILD)/SRPMS
 TARGZ = $(RPMBUILD)/SOURCES/src-mgen-$(VERSION).tgz
 PATCHES = $(wildcard *.patch)
 RPMPATCH = $(foreach p,$(PATCHES),$(RPMBUILD)/SOURCES/$(p))
-SPECS = $(foreach s,mgen mgen-python,$(RPMBUILD)/SPECS/$(s).spec)
+SPECS = $(RPMBUILD)/SPECS/mgen.spec $(RPMBUILD)/SPECS/mgen-python.spec
 
 $(RPMBUILD):
 	mkdir -p $@
@@ -57,8 +57,9 @@ $(RPMBUILD):
 $(RPMBDIRS): $(RPMBUILD)
 	mkdir -p $@
 
-$(SPECS): $(notdir($@)) $(RPMBUILD)/SPECS
-	sed "s,@TOPDIR@,$(RPMBUILD),g;s,@VERSION@,$(VERSION),g" < "$(notdir $@)" > "$@"
+$(SPECS): mgen.spec mgen-python.spec $(RPMBUILD)/SPECS
+	sed "s,@TOPDIR@,$(RPMBUILD),g;s,@VERSION@,$(VERSION),g" < mgen.spec > $(RPMBUILD)/SPECS/mgen.spec
+	sed "s,@TOPDIR@,$(RPMBUILD),g;s,@VERSION@,$(VERSION),g" < mgen-python.spec > $(RPMBUILD)/SPECS/mgen-python.spec
 
 # Pack up this source in preparation for making the tarball - if we can't find one already
 $(TARGZ):
