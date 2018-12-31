@@ -27,7 +27,7 @@ can be done via the command line or via an input file (for greater reproducibili
 This package doesn't include documentation or the Python bindings for MGEN.
 
 %prep
-%setup -q -n src-%{name}-%{version}
+%setup -q -n src-mgen-%{version}
 
 %build
 python setup.py build
