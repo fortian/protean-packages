@@ -7,14 +7,14 @@
 BuildRoot: %{buildroot}
 Summary: A packet generator for IP network performance testing
 License: BSD
-URL: https://www.nrl.navy.mil/itd/ncs/products/%{name}
+URL: https://www.nrl.navy.mil/itd/ncs/products/mgen
 Name: %{name}
 Version: %{version}
 BuildRequires: gcc-c++
 BuildRequires: python
 BuildRequires: python-devel
 Release: %{release}
-Source0: src-%{name}-%{version}.tgz
+Source0: src-mgen-%{version}.tgz
 Patch0: mgen-protolib-rhel.patch
 Prefix: /usr
 
