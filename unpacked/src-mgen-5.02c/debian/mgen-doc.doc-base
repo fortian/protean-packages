@@ -5,5 +5,5 @@ Abstract: Packet generator for IP network performance tests
 Section: Network/Monitoring
 
 Format: HTML
-Index: /usr/share/doc/mgen-doc/html/mgen.html
-Files: /usr/share/doc/mgen-doc/html/*.html
+Index: /usr/share/doc/mgen-doc/mgen.html
+Files: /usr/share/doc/mgen-doc/*.html

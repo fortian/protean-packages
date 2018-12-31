@@ -49,6 +49,7 @@ RPMBDIRS = $(foreach d,BUILD BUILDROOT RPMS SOURCES SPECS SRPMS,$(RPMBUILD)/$(d)
 TARGZ = $(RPMBUILD)/SOURCES/src-mgen-$(VERSION).tgz
 PATCHES = $(wildcard *.patch)
 RPMPATCH = $(foreach p,$(PATCHES),$(RPMBUILD)/SOURCES/$(p))
+SPECS = $(foreach s,mgen mgen-python,$(RPMBUILD)/SPECS/$(s).spec)
 
 $(RPMBUILD):
 	mkdir -p $@
@@ -56,8 +57,8 @@ $(RPMBUILD):
 $(RPMBDIRS): $(RPMBUILD)
 	mkdir -p $@
 
-$(RPMBUILD)/SPECS/mgen.spec: mgen.spec $(RPMBUILD)/SPECS
-	sed "s,@TOPDIR@,$(RPMBUILD),g;s,@VERSION@,$(VERSION),g" < mgen.spec > "$@"
+$(SPECS): $(notdir($@)) $(RPMBUILD)/SPECS
+	sed "s,@TOPDIR@,$(RPMBUILD),g;s,@VERSION@,$(VERSION),g" < "$(notdir $@)" > "$@"
 
 # Pack up this source in preparation for making the tarball - if we can't find one already
 $(TARGZ):
@@ -68,8 +69,8 @@ $(RPMPATCH): $@
 
 .PHONY: rpm deb
 
-rpm: $(RPMBDIRS) $(RPMBUILD)/SPECS/mgen.spec $(TARGZ) $(RPMPATCH)
-	cd "$(RPMBUILD)/SPECS" && rpmbuild -bb mgen.spec && rpmbuild -bs mgen.spec
+rpm: $(RPMBDIRS) $(SPECS) $(TARGZ) $(RPMPATCH)
+	cd "$(RPMBUILD)/SPECS" && rpmbuild -ba mgen.spec mgen-python.spec
 
 RELEASE = $(shell lsb_release -s -c)
 
