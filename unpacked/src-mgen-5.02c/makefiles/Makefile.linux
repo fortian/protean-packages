@@ -54,9 +54,12 @@ SPECS = $(RPMBUILD)/SPECS/mgen.spec $(RPMBUILD)/SPECS/mgen-python.spec
 $(RPMBDIRS):
 	mkdir -p $@
 
-$(SPECS): mgen.spec mgen-python.spec
+$(RPMBUILD)/SPECS/mgen.spec: mgen.spec
 	mkdir -p $(RPMBUILD)/SPECS
 	sed "s,@TOPDIR@,$(RPMBUILD),g;s,@VERSION@,$(VERSION),g" < mgen.spec > $(RPMBUILD)/SPECS/mgen.spec
+
+$(RPMBUILD)/SPECS/mgen-python.spec: mgen-python.spec
+	mkdir -p $(RPMBUILD)/SPECS
 	sed "s,@TOPDIR@,$(RPMBUILD),g;s,@VERSION@,$(VERSION),g" < mgen-python.spec > $(RPMBUILD)/SPECS/mgen-python.spec
 
 # Pack up this source in preparation for making the tarball - if we can't find one already
