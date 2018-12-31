@@ -45,19 +45,17 @@ AR = ar
 include Makefile.common
 
 RPMBUILD = $(abspath ../../../rpmbuild)
-RPMBDIRS = $(RPMBUILD)/BUILD $(RPMBUILD)/BUILDROOT $(RPMBUILD)/RPMS $(RPMBUILD)/SOURCES $(RPMBUILD)/SPECS $(RPMBUILD)/SRPMS
+RPMBDIRS = $(RPMBUILD)/SPECS/BUILD $(RPMBUILD)/SPECS/BUILDROOT $(RPMBUILD)/SPECS/RPMS $(RPMBUILD)/SPECS/SOURCES $(RPMBUILD)/SPECS/SPECS $(RPMBUILD)/SPECS/SRPMS
 TARGZ = $(RPMBUILD)/SOURCES/src-mgen-$(VERSION).tgz
 PATCHES = $(wildcard *.patch)
 RPMPATCH = $(foreach p,$(PATCHES),$(RPMBUILD)/SOURCES/$(p))
 SPECS = $(RPMBUILD)/SPECS/mgen.spec $(RPMBUILD)/SPECS/mgen-python.spec
 
-$(RPMBUILD):
+$(RPMBDIRS):
 	mkdir -p $@
 
-$(RPMBDIRS): $(RPMBUILD)
-	mkdir -p $@
-
-$(SPECS): mgen.spec mgen-python.spec $(RPMBUILD)/SPECS
+$(SPECS): mgen.spec mgen-python.spec
+	mkdir -p $(RPMBUILD)/SPECS
 	sed "s,@TOPDIR@,$(RPMBUILD),g;s,@VERSION@,$(VERSION),g" < mgen.spec > $(RPMBUILD)/SPECS/mgen.spec
 	sed "s,@TOPDIR@,$(RPMBUILD),g;s,@VERSION@,$(VERSION),g" < mgen-python.spec > $(RPMBUILD)/SPECS/mgen-python.spec
 
