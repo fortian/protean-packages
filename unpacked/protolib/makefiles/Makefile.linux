@@ -67,21 +67,24 @@ TARGZ = $(RPMBUILD)/SOURCES/src-protolib-$(VERSION).tgz
 PATCHES = $(wildcard *.patch)
 RPMPATCH = $(foreach p,$(PATCHES),$(RPMBUILD)/SOURCES/$(p))
 
-$(RPMBUILD):
-	mkdir -p $@
-
 $(RPMBDIRS): $(RPMBUILD)
 	mkdir -p $@
 
-$(RPMBUILD)/SPECS/protolib.spec: protolib.spec $(RPMBUILD)/SPECS
+$(RPMBUILD)/SPECS/protolib.spec: protolib.spec
+	mkdir -p $(RPMBUILD)/SPECS
 	sed "s,@TOPDIR@,$(RPMBUILD),g;s,@VERSION@,$(VERSION),g" < protolib.spec > "$@"
+
+$(RPMBUILD)/SPECS/protolib-python.spec: protolib-python.spec
+	mkdir -p $(RPMBUILD)/SPECS
+	sed "s,@TOPDIR@,$(RPMBUILD),g;s,@VERSION@,$(VERSION),g" < protolib-python.spec > "$@"
 
 # Pack up this source in preparation for making the tarball - if we can't find one already
 $(TARGZ):
 	tar czf $@ -C ../.. protolib
 
 $(RPMPATCH): $@
+	mkdir -p $(RPMBUILD)/SOURCES
 	cp $(notdir $@) $(RPMBUILD)/SOURCES/
 
-rpm: $(RPMBDIRS) $(RPMBUILD)/SPECS/protolib.spec $(TARGZ) $(RPMPATCH)
-	cd "$(RPMBUILD)/SPECS" && rpmbuild -bb protolib.spec && rpmbuild -bs protolib.spec
+rpm: $(RPMBDIRS) $(RPMBUILD)/SPECS/protolib.spec $(RPMBUILD)/SPECS/protolib-python.spec $(TARGZ) $(RPMPATCH)
+	cd "$(RPMBUILD)/SPECS" && rpmbuild -ba protolib.spec protolib-python.spec
