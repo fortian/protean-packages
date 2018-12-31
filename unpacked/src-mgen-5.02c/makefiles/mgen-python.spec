@@ -11,8 +11,8 @@ URL: https://www.nrl.navy.mil/itd/ncs/products/%{name}
 Name: %{name}
 Version: %{version}
 BuildRequires: gcc-c++
-BuildRequires python
-BuildRequires python-devel
+BuildRequires: python
+BuildRequires: python-devel
 Release: %{release}
 Source0: src-%{name}-%{version}.tgz
 Patch0: mgen-protolib-rhel.patch
