@@ -95,8 +95,8 @@ $(RPMPATCH): $@
 
 rpm: $(RPMBDIRS) $(SPECS) $(TARGZ) $(RPMPATCH)
 	cd "$(RPMBUILD)/SPECS"; rpmbuild -ba mgen.spec mgen-py34.spec
-	if [ -x /usr/bin/python2.6 ]; then cd "$(RPMBUILD)/SPECS"; rpmbuild -ba mgen-py26.spec gpsPub-py26.pub; fi
-	if [ -x /usr/bin/python2.7 ]; then cd "$(RPMBUILD)/SPECS"; rpmbuild -ba mgen-py27.spec gpsPub-py27.pub; fi
+	if [ -x /usr/bin/python2.6 ]; then cd "$(RPMBUILD)/SPECS"; rpmbuild -ba mgen-py26.spec; fi
+	if [ -x /usr/bin/python2.7 ]; then cd "$(RPMBUILD)/SPECS"; rpmbuild -ba mgen-py27.spec; fi
 
 RELEASE = $(shell lsb_release -s -c)
 

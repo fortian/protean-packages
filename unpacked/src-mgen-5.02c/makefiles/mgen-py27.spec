@@ -24,7 +24,9 @@ using TCP and UDP/IP traffic. Test messages can be generated, received and logge
 MGEN offers control over all network parameters and timing of these messages. This
 can be done via the command line or via an input file (for greater reproducibility).
 
-This package provides Python 2.7 bindings.
+gpsPub publishes GPS coordinates for use by MGEN in CORE-created containers.
+
+This package provides Python 2.7 bindings for MGEN and gpsPub.
 
 %prep
 %setup -q -n src-mgen-%{version}
@@ -41,6 +43,12 @@ python setup.py install --root %{buildroot} mgen
 /usr/lib/python*/site-packages/mgen.pyo
 /usr/lib/python*/site-packages/mgen.pyc
 /usr/lib/python*/site-packages/mgen-1.0-py*.egg-info
+%{_libdir}/python*/site-packages/gpsPub-1.0-py*.egg-info
+%attr(0755, root, root) %{_libdir}/python*/site-packages/_gpsPub.so
+/usr/lib/debug/%{_libdir}/python*/site-packages/_gpsPub.so.debug
+/usr/src/debug/src-mgen-5.02c/include/gpsPub.h
+/usr/src/debug/src-mgen-5.02c/src/common/gpsPub.cpp
+/usr/src/debug/src-mgen-5.02c/src/python/gpsPub_wrap.c
 
 %changelog
 * Mon Dec 31 2018 Ben Stern <bstern@fortian.com> - 5.02c-1
