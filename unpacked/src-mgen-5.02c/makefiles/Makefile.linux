@@ -49,7 +49,7 @@ RPMBDIRS = $(RPMBUILD)/SPECS/BUILD $(RPMBUILD)/SPECS/BUILDROOT $(RPMBUILD)/SPECS
 TARGZ = $(RPMBUILD)/SOURCES/src-mgen-$(VERSION).tgz
 PATCHES = $(wildcard *.patch)
 RPMPATCH = $(foreach p,$(PATCHES),$(RPMBUILD)/SOURCES/$(p))
-SPECS = $(RPMBUILD)/SPECS/mgen.spec $(RPMBUILD)/SPECS/mgen-python.spec
+SPECS = $(RPMBUILD)/SPECS/mgen.spec $(RPMBUILD)/SPECS/mgen-py26.spec $(RPMBUILD)/SPECS/mgen-py27.spec $(RPMBUILD)/SPECS/mgen-py34.spec
 
 $(RPMBDIRS):
 	mkdir -p $@
@@ -72,7 +72,9 @@ $(RPMPATCH): $@
 .PHONY: rpm deb
 
 rpm: $(RPMBDIRS) $(SPECS) $(TARGZ) $(RPMPATCH)
-	cd "$(RPMBUILD)/SPECS" && rpmbuild -ba mgen.spec mgen-python.spec
+	cd "$(RPMBUILD)/SPECS"; rpmbuild -ba mgen.spec mgen-py34.spec
+	if [ -x /usr/bin/python2.6 ]; then cd "$(RPMBUILD)/SPECS"; rpmbuild -ba mgen-py26.spec gpsPub-py26.pub; fi
+	if [ -x /usr/bin/python2.7 ]; then cd "$(RPMBUILD)/SPECS"; rpmbuild -ba mgen-py27.spec gpsPub-py27.pub; fi
 
 RELEASE = $(shell lsb_release -s -c)
 
