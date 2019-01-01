@@ -35,7 +35,7 @@ This package provides Python 2.6 bindings for MGEN and gpsPub.
 python setup.py build
 
 %install
-python setup.py install --root %{buildroot} mgen
+python setup.py install --root %{buildroot}
 
 %files
 %defattr(0644, root, root)

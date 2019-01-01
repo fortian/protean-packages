@@ -35,7 +35,7 @@ This package provides Python 3.4 bindings for MGEN and gpsPub.
 python3 setup.py build
 
 %install
-python3 setup.py install --root %{buildroot} mgen
+python3 setup.py install --root %{buildroot}
 
 %files
 %defattr(0644, root, root)
