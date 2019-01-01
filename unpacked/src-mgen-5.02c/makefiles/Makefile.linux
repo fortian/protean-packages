@@ -49,7 +49,9 @@ RPMBDIRS = $(RPMBUILD)/SPECS/BUILD $(RPMBUILD)/SPECS/BUILDROOT $(RPMBUILD)/SPECS
 TARGZ = $(RPMBUILD)/SOURCES/src-mgen-$(VERSION).tgz
 PATCHES = $(wildcard *.patch)
 RPMPATCH = $(foreach p,$(PATCHES),$(RPMBUILD)/SOURCES/$(p))
-SPECS = $(RPMBUILD)/SPECS/mgen.spec $(RPMBUILD)/SPECS/mgen-py26.spec $(RPMBUILD)/SPECS/mgen-py27.spec $(RPMBUILD)/SPECS/mgen-py34.spec
+SPECS = $(RPMBUILD)/SPECS/mgen.spec \
+	$(RPMBUILD)/SPECS/mgen-py26.spec $(RPMBUILD)/SPECS/mgen-py27.spec $(RPMBUILD)/SPECS/mgen-py34.spec \
+	$(RPMBUILD)/SPECS/gpsPub-py26.spec $(RPMBUILD)/SPECS/gpsPub-py27.spec $(RPMBUILD)/SPECS/gpsPub-py34.spec
 
 $(RPMBDIRS):
 	mkdir -p $@
@@ -58,9 +60,29 @@ $(RPMBUILD)/SPECS/mgen.spec: mgen.spec
 	mkdir -p $(RPMBUILD)/SPECS
 	sed "s,@TOPDIR@,$(RPMBUILD),g;s,@VERSION@,$(VERSION),g" < mgen.spec > $(RPMBUILD)/SPECS/mgen.spec
 
-$(RPMBUILD)/SPECS/mgen-python.spec: mgen-python.spec
+$(RPMBUILD)/SPECS/mgen-py26.spec: mgen-py26.spec
 	mkdir -p $(RPMBUILD)/SPECS
-	sed "s,@TOPDIR@,$(RPMBUILD),g;s,@VERSION@,$(VERSION),g" < mgen-python.spec > $(RPMBUILD)/SPECS/mgen-python.spec
+	sed "s,@TOPDIR@,$(RPMBUILD),g;s,@VERSION@,$(VERSION),g" < mgen-py26.spec > $(RPMBUILD)/SPECS/mgen-py26.spec
+
+$(RPMBUILD)/SPECS/mgen-py27.spec: mgen-py27.spec
+	mkdir -p $(RPMBUILD)/SPECS
+	sed "s,@TOPDIR@,$(RPMBUILD),g;s,@VERSION@,$(VERSION),g" < mgen-py27.spec > $(RPMBUILD)/SPECS/mgen-py27.spec
+
+$(RPMBUILD)/SPECS/mgen-py34.spec: mgen-py34.spec
+	mkdir -p $(RPMBUILD)/SPECS
+	sed "s,@TOPDIR@,$(RPMBUILD),g;s,@VERSION@,$(VERSION),g" < mgen-py34.spec > $(RPMBUILD)/SPECS/mgen-py34.spec
+
+$(RPMBUILD)/SPECS/gpsPub-py26.spec: gpsPub-py26.spec
+	mkdir -p $(RPMBUILD)/SPECS
+	sed "s,@TOPDIR@,$(RPMBUILD),g;s,@VERSION@,$(VERSION),g" < gpsPub-py26.spec > $(RPMBUILD)/SPECS/gpsPub-py26.spec
+
+$(RPMBUILD)/SPECS/gpsPub-py27.spec: gpsPub-py27.spec
+	mkdir -p $(RPMBUILD)/SPECS
+	sed "s,@TOPDIR@,$(RPMBUILD),g;s,@VERSION@,$(VERSION),g" < gpsPub-py27.spec > $(RPMBUILD)/SPECS/gpsPub-py27.spec
+
+$(RPMBUILD)/SPECS/gpsPub-py34.spec: gpsPub-py34.spec
+	mkdir -p $(RPMBUILD)/SPECS
+	sed "s,@TOPDIR@,$(RPMBUILD),g;s,@VERSION@,$(VERSION),g" < gpsPub-py34.spec > $(RPMBUILD)/SPECS/gpsPub-py34.spec
 
 # Pack up this source in preparation for making the tarball - if we can't find one already
 $(TARGZ):
