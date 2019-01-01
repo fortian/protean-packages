@@ -39,11 +39,12 @@ python3 setup.py install --root %{buildroot}
 
 %files
 %defattr(0644, root, root)
-/usr/lib/python*/site-packages/mgen.py*
-/usr/lib/python*/site-packages/mgen-1.0-py*.egg-info
-%{_libdir}/python*/site-packages/gpsPub-1.0-py*.egg-info
-%attr(0755, root, root) %{_libdir}/python*/site-packages/_gpsPub.so
-/usr/lib/debug/%{_libdir}/python*/site-packages/_gpsPub.so.debug
+%attr(0755, root, root) %{_libdir}/python3.4/site-packages/_gpsPub.cpython-34m.so
+/usr/lib/python3.4/site-packages/mgen.py
+/usr/lib/python3.4/site-packages/mgen-1.0-py3.4.egg-info
+/usr/lib/debug%{_libdir}/python3.4/site-packages/_gpsPub.cpython-34m.so.debug
+%{_libdir}/python3.4/site-packages/gpsPub-1.0-py3.4.egg-info
+%{_libdir}/python3.4/site-packages/_gpsPub.cpython-34m.so
 /usr/src/debug/src-mgen-5.02c/include/gpsPub.h
 /usr/src/debug/src-mgen-5.02c/src/common/gpsPub.cpp
 /usr/src/debug/src-mgen-5.02c/src/python/gpsPub_wrap.c
