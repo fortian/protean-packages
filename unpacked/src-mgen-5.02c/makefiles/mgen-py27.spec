@@ -33,7 +33,7 @@ This package provides Python 2.7 bindings.
 python setup.py build
 
 %install
-python setup.py install mgen --root %{buildroot}
+python setup.py install --root %{buildroot} mgen
 
 %files
 %defattr(0644, root, root)

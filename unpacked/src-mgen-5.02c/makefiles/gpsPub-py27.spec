@@ -31,7 +31,7 @@ This package provides Python 2.7 bindings.
 python setup.py build
 
 %install
-python setup.py install gpsPub --root %{buildroot}
+python setup.py install --root %{buildroot} gpsPub
 
 %files
 %defattr(0644, root, root)

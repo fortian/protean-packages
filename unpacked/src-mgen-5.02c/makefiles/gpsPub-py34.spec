@@ -31,7 +31,7 @@ This package provides Python 3.4 bindings.
 python3 setup.py build
 
 %install
-python3 setup.py install gpsPub --root %{buildroot}
+python3 setup.py install --root %{buildroot} gpsPub
 
 %files
 %defattr(0644, root, root)
