@@ -39,9 +39,7 @@ python3 setup.py install --root %{buildroot}
 
 %files
 %defattr(0644, root, root)
-/usr/lib/python*/site-packages/mgen.py
-/usr/lib/python*/site-packages/mgen.pyo
-/usr/lib/python*/site-packages/mgen.pyc
+/usr/lib/python*/site-packages/mgen.py*
 /usr/lib/python*/site-packages/mgen-1.0-py*.egg-info
 %{_libdir}/python*/site-packages/gpsPub-1.0-py*.egg-info
 %attr(0755, root, root) %{_libdir}/python*/site-packages/_gpsPub.so
