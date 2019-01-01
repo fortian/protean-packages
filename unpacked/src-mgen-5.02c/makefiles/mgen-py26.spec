@@ -30,7 +30,7 @@ This package provides Python 2.6 bindings.
 %setup -q -n src-mgen-%{version}
 
 %build
-python setup.py build mgen
+python setup.py build
 
 %install
 python setup.py install mgen --root %{buildroot}

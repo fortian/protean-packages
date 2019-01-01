@@ -30,7 +30,7 @@ This package provides Python 3.4 bindings.
 %setup -q -n src-mgen-%{version}
 
 %build
-python3 setup.py build mgen
+python3 setup.py build
 
 %install
 python3 setup.py install mgen --root %{buildroot}
