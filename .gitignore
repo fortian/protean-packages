@@ -1,6 +1,5 @@
 *.o
 *.a
-rpmbuild/SPECS/*.spec
 unpacked/TRPR/hcat
 unpacked/TRPR/trpr
 unpacked/protolib/makefiles/arposer
